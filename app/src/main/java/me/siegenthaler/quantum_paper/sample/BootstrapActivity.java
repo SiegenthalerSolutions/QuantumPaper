@@ -17,7 +17,7 @@ package me.siegenthaler.quantum_paper.sample;
 
 import android.os.Bundle;
 
-import me.siegenthaler.quantum_paper.view.QuantumBaseActivity;
+import me.siegenthaler.quantum_paper.widget.QuantumBaseActivity;
 
 /**
  * Bootstrap activity for the sample application.

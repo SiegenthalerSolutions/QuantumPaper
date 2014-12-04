@@ -17,7 +17,6 @@ package me.siegenthaler.quantum_paper;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -28,8 +27,9 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.LruCache;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
 import android.util.TypedValue;
 import android.view.View;
 
@@ -37,72 +37,34 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-
-import me.siegenthaler.quantum_paper.filter.ActionDrawableFilter;
-import me.siegenthaler.quantum_paper.interceptor.ActionInterceptor;
-import me.siegenthaler.quantum_paper.interceptor.ButtonInterceptor;
-import me.siegenthaler.quantum_paper.filter.TextFieldHandleDrawableFilter;
-import me.siegenthaler.quantum_paper.interceptor.TextFieldInterceptor;
-import me.siegenthaler.quantum_paper.filter.ButtonDrawableFilter;
-import me.siegenthaler.quantum_paper.filter.TextFieldDrawableFilter;
 
 /**
- * Implementation for {@link android.content.res.Resources} to allow intercept resources
- * to allow tinting drawable at runtime.
+ * Define the manager for the <b>Quantum Paper</b> framework.
  */
 public final class QuantumResources extends Resources {
-    /**
-     * Define an interface for intercepting drawables.
-     */
-    public interface DrawableFilter {
-        public Drawable getDrawable(QuantumResources resources, Drawable drawable, int resId);
-    }
-
-    /**
-     * Define an interface for intercepting bitmaps.
-     */
-    public interface BitmapFilter {
-        public Bitmap getDrawable(QuantumResources resources, Bitmap bitmap, TypedValue value);
-    }
-
-    /**
-     * Define an interface for intercepting views.
-     */
-    public interface ViewInterceptor {
-        public View getView(QuantumResources resources, String name, Context context, AttributeSet attributes);
-    }
-
     private final Context mContext;
+    private final SparseIntArray mColors;
     private final TypedValue mTypedValue;
-    private final List<DrawableFilter> mDrawableFilters = new ArrayList<>();
-    private final List<ViewInterceptor> mViewFilters = new ArrayList<>();
-    private final List<BitmapFilter> mBitmapFilters = new ArrayList<>();
 
+    private final SparseArray<Filter> mFilterMapping;
+    private final SparseArray<Interceptor> mInterceptorMapping;
+    private final SparseIntArray mResourceMapping;
     private final ColorFilterLruCache mColorFilterCache = new ColorFilterLruCache(6);
-    private ColorStateList mDefaultColorStateList;
 
     /**
      * Default constructor.
      *
-     * @param context   the context on which the resources are.
+     * @param context   the context on which the resources are at.
      * @param resources the resources reference for the drawables.
      */
     public QuantumResources(Context context, Resources resources) {
         super(resources.getAssets(), resources.getDisplayMetrics(), resources.getConfiguration());
         this.mContext = context;
+        this.mColors = new SparseIntArray();
         this.mTypedValue = new TypedValue();
-
-        addBitmapDrawableFilter(new TextFieldHandleDrawableFilter());
-
-        addViewFilter(new ActionInterceptor());
-        addViewFilter(new TextFieldInterceptor());
-        addViewFilter(new ButtonInterceptor());
-
-        addDrawableFilter(new ActionDrawableFilter());
-        addDrawableFilter(new TextFieldDrawableFilter());
-        addDrawableFilter(new ButtonDrawableFilter());
+        this.mFilterMapping = new SparseArray<>();
+        this.mInterceptorMapping = new SparseArray<>();
+        this.mResourceMapping = new SparseIntArray();
     }
 
     /**
@@ -110,7 +72,7 @@ public final class QuantumResources extends Resources {
      */
     @Override
     public Drawable getDrawable(int resId) throws NotFoundException {
-        return getThemeDrawable(super.getDrawable(resId), resId);
+        return getDrawableFromTheme(super.getDrawable(resId), resId);
     }
 
     /**
@@ -119,7 +81,7 @@ public final class QuantumResources extends Resources {
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1)
     @Override
     public Drawable getDrawableForDensity(int resId, int density) throws NotFoundException {
-        return getThemeDrawable(super.getDrawableForDensity(resId, density), resId);
+        return getDrawableFromTheme(super.getDrawableForDensity(resId, density), resId);
     }
 
     /**
@@ -128,7 +90,7 @@ public final class QuantumResources extends Resources {
     @TargetApi(Build.VERSION_CODES.L)
     @Override
     public Drawable getDrawable(int resId, Theme theme) throws NotFoundException {
-        return getThemeDrawable(super.getDrawable(resId, theme), resId);
+        return getDrawableFromTheme(super.getDrawable(resId, theme), resId);
     }
 
     /**
@@ -137,7 +99,7 @@ public final class QuantumResources extends Resources {
     @TargetApi(Build.VERSION_CODES.L)
     @Override
     public Drawable getDrawableForDensity(int resId, int density, Theme theme) {
-        return getThemeDrawable(super.getDrawableForDensity(resId, density, theme), resId);
+        return getDrawableFromTheme(super.getDrawableForDensity(resId, density, theme), resId);
     }
 
     /**
@@ -145,16 +107,281 @@ public final class QuantumResources extends Resources {
      */
     @Override
     public InputStream openRawResource(int resId, TypedValue value) throws NotFoundException {
-        final Bitmap bitmap = getBitmapFromResource(resId, value);
-        Bitmap result;
-        if (bitmap != null) {
-            for (final BitmapFilter filter : mBitmapFilters) {
-                result = filter.getDrawable(this, bitmap, value);
-                if (result != null)
-                    return getStreamFromBitmap(result);
-            }
+        return getBitmapStreamFromTheme(resId, value);
+    }
+
+    /**
+     * Register a filter.
+     *
+     * @param name   a unique name for the given filter.
+     * @param filter a reference to the instance of the filter.
+     */
+    public void addFilter(String name, Filter filter) {
+        mFilterMapping.append(name.hashCode(), filter);
+    }
+
+    /**
+     * Register an interceptor for the given view.
+     *
+     * @param name        the name of the view to intercept.
+     * @param interceptor the reference to the interceptor.
+     */
+    public void addInterceptor(String name, Interceptor interceptor) {
+        mInterceptorMapping.append(name.hashCode(), interceptor);
+    }
+
+    /**
+     * Register a resources to the given filter.
+     *
+     * @param filter a reference to the filter's name.
+     * @param resId  the unique identifier of the resource.
+     */
+    public void addResource(String filter, int resId) {
+        mResourceMapping.append(resId, filter.hashCode());
+    }
+
+    /**
+     * Register a list of resources to the given filter.
+     *
+     * @param filter a reference to the filter's class.
+     * @param resIds a collection that contains the resources ids.
+     */
+    public void addResources(String filter, int... resIds) {
+        final int filterId = filter.hashCode();
+        for (int resId : resIds) {
+            mResourceMapping.append(resId, filterId);
         }
-        return getStreamFromBitmap(bitmap);
+    }
+
+    /**
+     * Retrieve a widget from the resources.
+     *
+     * @param name    the name of the view to intercept.
+     * @param context the context on which the view is created.
+     * @param attrs   the attributes of the given view.
+     *
+     * @return a new reference to the view created, or null if wasn't intercepted.
+     */
+    public View getWidget(String name, Context context, AttributeSet attrs) {
+        final Interceptor interceptor = mInterceptorMapping.get(name.hashCode(), null);
+        if (interceptor != null) {
+            return interceptor.getWidget(this, context, attrs);
+        }
+        return null;
+    }
+
+    /**
+     * Retrieve a drawable with the proper tinting.
+     *
+     * @param drawable the reference to the drawable.
+     * @param resId    the unique identifier of the resource.
+     *
+     * @return a reference to the drawable tinted or wrapped.
+     */
+    public Drawable getDrawableFromTheme(Drawable drawable, int resId) {
+        final Filter filter = getFilter(resId);
+        if (filter != null) {
+            drawable = filter.getDrawable(this, drawable);
+        }
+        return drawable;
+    }
+
+    /**
+     * Retrieve a stream to a Bitmap with the proper tinting.
+     *
+     * @param resId the unique identifier of the resource.
+     * @param value the reference to the typed value.
+     *
+     * @return a reference to the bitmap tinted or wrapped.
+     */
+    public InputStream getBitmapStreamFromTheme(int resId, TypedValue value) {
+        return getStreamFromBitmap(
+                getBitmapFromTheme(getBitmapFromResource(resId, value), resId));
+    }
+
+    /**
+     * Retrieve a bitmap with the proper tinting.
+     *
+     * @param resId the unique identifier of the resource.
+     * @param value the reference to the typed value.
+     *
+     * @return a reference to the bitmap tinted or wrapped.
+     */
+    public Bitmap getBitmapFromTheme(int resId, TypedValue value) {
+        if (value == null) {
+            value = new TypedValue();
+        }
+        return getBitmapFromTheme(getBitmapFromResource(resId, value), resId);
+    }
+
+    /**
+     * Retrieve a bitmap with the proper tinting.
+     *
+     * @param bitmap the reference to the bitmap.
+     * @param resId  the unique identifier of the resource.
+     *
+     * @return a reference to the bitmap tinted or wrapped.
+     */
+    public Bitmap getBitmapFromTheme(Bitmap bitmap, int resId) {
+        final Filter filter = getFilter(resId);
+        if (bitmap != null && filter != null) {
+            return filter.getBitmap(this, bitmap);
+        }
+        return bitmap;
+    }
+
+    /**
+     * Retrieve a color from the palette.
+     *
+     * @param resId a unique identifier of the color.
+     *
+     * @return a reference to the color in ARGB format.
+     */
+    public int getThemeAttrColor(int resId) {
+        int resource = mColors.get(resId, -1);
+        if (resource == -1 && mContext.getTheme().resolveAttribute(resId, mTypedValue, true)) {
+            if (mTypedValue.type >= TypedValue.TYPE_FIRST_INT
+                    && mTypedValue.type <= TypedValue.TYPE_LAST_INT) {
+                resource = mTypedValue.data;
+            } else if (mTypedValue.type == TypedValue.TYPE_STRING) {
+                resource = super.getColor(mTypedValue.resourceId);
+            }
+            mColors.append(resId, resource);
+        }
+        return resource;
+    }
+
+    /**
+     * Retrieve a color from the palette with alpha applied.
+     *
+     * @param resId a unique identifier of the color.
+     * @param alpha alpha the alpha value to applied.
+     *
+     * @return a reference to the color in ARGB format.
+     */
+    public int getThemeAttrColor(int resId, float alpha) {
+        final int color = getThemeAttrColor(resId);
+        final int originalAlpha = Color.alpha(color);
+        return (color & 0x00ffffff) | (Math.round(originalAlpha * alpha) << 24);
+    }
+
+    /**
+     * Retrieve a color from the palette with alpha applied from a resource.
+     *
+     * @param resId      a unique identifier of the color.
+     * @param alphaResId a unique identifier of the alpha resource.
+     *
+     * @return a reference to the color in ARGB format.
+     */
+    public int getThemeAttrColor(int resId, int alphaResId) {
+        mContext.getTheme().resolveAttribute(alphaResId, mTypedValue, true);
+        return getThemeAttrColor(resId, mTypedValue.getFloat());
+    }
+
+    /**
+     * Apply color to the given {@link android.graphics.drawable.Drawable} using
+     * {@link android.graphics.PorterDuff.Mode#SRC_IN}.
+     *
+     * @param drawable  a reference to the drawable.
+     * @param attribute a resource identifier of the attribute for color.
+     *
+     * @return a reference to the bitmap tinted or wrapped.
+     */
+    public Drawable applyColor(Drawable drawable, int attribute) {
+        return applyColor(drawable, attribute, -1, PorterDuff.Mode.SRC_IN);
+    }
+
+    /**
+     * Apply color to the given {@link android.graphics.drawable.Drawable}.
+     *
+     * @param drawable  a reference to the drawable.
+     * @param attribute a resource identifier of the attribute for color.
+     * @param mode      the mode of the tint
+     *
+     * @return a reference to the bitmap tinted or wrapped.
+     */
+    public Drawable applyColor(Drawable drawable, int attribute, PorterDuff.Mode mode) {
+        return applyColor(drawable, attribute, -1, mode);
+    }
+
+    /**
+     * Apply color to the given {@link android.graphics.drawable.Drawable} using
+     * {@link android.graphics.PorterDuff.Mode#SRC_IN} and the given alpha value.
+     *
+     * @param drawable  a reference to the drawable.
+     * @param attribute a resource identifier of the attribute for color.
+     * @param alpha     a number that represent the alpha value.
+     *
+     * @return a reference to the bitmap tinted or wrapped.
+     */
+    public Drawable applyColor(Drawable drawable, int attribute, int alpha) {
+        return applyColor(drawable, attribute, alpha, PorterDuff.Mode.SRC_IN);
+    }
+
+    /**
+     * Apply color to the given {@link android.graphics.drawable.Drawable}.
+     *
+     * @param drawable  a reference to the drawable.
+     * @param attribute a resource identifier of the attribute for color.
+     * @param alpha     a number that represent the alpha value.
+     * @param mode      the mode of the tint.
+     *
+     * @return a reference to the bitmap tinted or wrapped.
+     */
+    public Drawable applyColor(Drawable drawable, int attribute, int alpha, PorterDuff.Mode mode) {
+        final int color = getThemeAttrColor(attribute);
+        PorterDuffColorFilter filter = mColorFilterCache.get(color, mode);
+        if (filter == null) {
+            mColorFilterCache.put(color, mode,
+                    filter = new PorterDuffColorFilter(color, mode));
+        }
+        drawable.setColorFilter(filter);
+        if (alpha != -1) {
+            drawable.setAlpha(alpha);
+        }
+        return drawable;
+    }
+
+    /**
+     * Creates a copy of the bitmap by replacing the color of every pixel
+     * by accentColor while keeping the alpha value.
+     *
+     * @param bitmap      The original bitmap.
+     * @param accentColor The color to apply to every pixel.
+     *
+     * @return A copy of the given bitmap with the accent color applied.
+     */
+    public Bitmap applyColor(Bitmap bitmap, int accentColor) {
+        final int r = Color.red(accentColor);
+        final int g = Color.green(accentColor);
+        final int b = Color.blue(accentColor);
+
+        final int width = bitmap.getWidth();
+        final int height = bitmap.getHeight();
+        final int[] pixels = new int[width * height];
+        bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
+
+        for (int i = 0; i < pixels.length; i++) {
+            final int color = pixels[i];
+            final int alpha = Color.alpha(color);
+            pixels[i] = Color.argb(alpha, r, g, b);
+        }
+        return Bitmap.createBitmap(pixels, width, height, Bitmap.Config.ARGB_8888);
+    }
+
+    /**
+     * Retrieve the {@link Filter} for the given resource.
+     *
+     * @param resId a unique identifier for a resource.
+     *
+     * @return a reference to the filter of the given resource.
+     */
+    private Filter getFilter(int resId) {
+        final int id = mResourceMapping.get(resId, -1);
+        if (id == -1) {
+            return null;
+        }
+        return mFilterMapping.get(id);
     }
 
     /**
@@ -173,8 +400,7 @@ public final class QuantumResources extends Resources {
         options.inScaled = false;
         options.inScreenDensity = getDisplayMetrics().densityDpi;
         return BitmapFactory.decodeResourceStream(
-                this, value, original,
-                new Rect(), options);
+                this, value, original, new Rect(), options);
     }
 
     /**
@@ -186,220 +412,31 @@ public final class QuantumResources extends Resources {
      */
     private InputStream getStreamFromBitmap(Bitmap bitmap) {
         final ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100 /*ignored for PNG*/, bos);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
         final byte[] bitmapData = bos.toByteArray();
         try {
             bos.close();
-        } catch (IOException e) { /* ignore */}
+        } catch (IOException ignored) {
+        }
 
         return new ByteArrayInputStream(bitmapData);
     }
 
     /**
-     * Retrieve a drawable from the theme manager.
-     *
-     * @param drawable a reference to the drawable
-     * @param resId    the reference to the drawable identifier
-     *
-     * @return a reference to the drawable tinted
+     * Define an interface for intercepting drawables and bitmaps.
      */
-    public Drawable getThemeDrawable(Drawable drawable, int resId) {
-        Drawable myDrawable;
-        for (final DrawableFilter filter : mDrawableFilters) {
-            myDrawable = filter.getDrawable(this, drawable, resId);
-            if (myDrawable != null)
-                return myDrawable;
-        }
-        return drawable;
+    public interface Filter {
+        public Drawable getDrawable(QuantumResources manager, Drawable drawable);
+
+        public Bitmap getBitmap(QuantumResources manager, Bitmap bitmap);
     }
 
     /**
-     * Retrieve a color from the theme.
-     *
-     * @param resId the unique identifier of the resource.
-     *
-     * @return an integer with the format ARGB.
+     * Define an interface for intercepting views.
      */
-    public int getThemeAttrColor(int resId) {
-        if (mContext.getTheme().resolveAttribute(resId, mTypedValue, true)) {
-            if (mTypedValue.type >= TypedValue.TYPE_FIRST_INT
-                    && mTypedValue.type <= TypedValue.TYPE_LAST_INT) {
-                return mTypedValue.data;
-            } else if (mTypedValue.type == TypedValue.TYPE_STRING) {
-                return super.getColor(mTypedValue.resourceId);
-            }
-        }
-        return 0;
+    public interface Interceptor {
+        public View getWidget(QuantumResources manager, Context context, AttributeSet attributes);
     }
-
-    /**
-     * Retrieve a color from the theme with alpha applied.
-     *
-     * @param resId the unique identifier of the resource.
-     * @param alpha the alpha to apply to the resource.
-     *
-     * @return an integer with the format ARGB.
-     */
-    public int getThemeAttrColor(int resId, float alpha) {
-        final int color = getThemeAttrColor(resId);
-        final int originalAlpha = Color.alpha(color);
-        return (color & 0x00ffffff) | (Math.round(originalAlpha * alpha) << 24);
-    }
-
-    /**
-     * Retrieve a color from the theme using disabled attr color.
-     *
-     * @param resId the unique identifier of the resource.
-     *
-     * @return an integer with the format ARGB.
-     */
-    public int getDisabledThemeAttrColor(int resId) {
-        mContext.getTheme().resolveAttribute(android.R.attr.disabledAlpha, mTypedValue, true);
-        return getThemeAttrColor(resId, mTypedValue.getFloat());
-    }
-
-    /**
-     * Retrieve a drawable with a tint provided.
-     *
-     * @param drawable the drawable to be tinted by the theme.
-     * @param tint     the reference to the tint properties.
-     *
-     * @return a new reference to the drawable with the tint applied.
-     */
-    public Drawable getThemeDrawable(Drawable drawable, QuantumTint tint) {
-        final int color = getThemeAttrColor(tint.mAttributeColor);
-        PorterDuffColorFilter filter = mColorFilterCache.get(color, tint.mAttributeTintMode);
-        if (filter == null) {
-            mColorFilterCache.put(color, tint.mAttributeTintMode,
-                    filter = new PorterDuffColorFilter(color, tint.mAttributeTintMode));
-        }
-        drawable.setColorFilter(filter);
-        if (tint.mAttributeColorAlpha != -1) {
-            drawable.setAlpha(tint.mAttributeColorAlpha);
-        }
-        return drawable;
-    }
-
-    /**
-     * Retrieve the default {@link android.content.res.ColorStateList} for controls.
-     *
-     * @return a reference to the default ColorStateList.
-     */
-    public ColorStateList getDefaultColorStateList() {
-        if (mDefaultColorStateList == null) {
-            final int colorControlNormal = getThemeAttrColor(R.attr.colorControlNormal);
-            final int colorControlActivated = getThemeAttrColor(R.attr.colorControlActivated);
-
-            final int[][] states = new int[7][];
-            final int[] colors = new int[7];
-            int i = 0;
-
-            // Disabled state
-            states[i] = new int[]{-android.R.attr.state_enabled};
-            colors[i] = getDisabledThemeAttrColor(R.attr.colorControlNormal);
-            i++;
-
-            states[i] = new int[]{android.R.attr.state_focused};
-            colors[i] = colorControlActivated;
-            i++;
-
-            states[i] = new int[]{android.R.attr.state_activated};
-            colors[i] = colorControlActivated;
-            i++;
-
-            states[i] = new int[]{android.R.attr.state_pressed};
-            colors[i] = colorControlActivated;
-            i++;
-
-            states[i] = new int[]{android.R.attr.state_checked};
-            colors[i] = colorControlActivated;
-            i++;
-
-            states[i] = new int[]{android.R.attr.state_selected};
-            colors[i] = colorControlActivated;
-            i++;
-
-            // Default enabled state
-            states[i] = new int[0];
-            colors[i] = colorControlNormal;
-            mDefaultColorStateList = new ColorStateList(states, colors);
-        }
-        return mDefaultColorStateList;
-    }
-
-    /**
-     * Adds a new drawable filter.
-     *
-     * @param filter a reference to the filter implementation.
-     */
-    public void addDrawableFilter(DrawableFilter filter) {
-        mDrawableFilters.add(0, filter);
-    }
-
-    /**
-     * Adds a new drawable filter.
-     *
-     * @param filter a reference to the filter implementation.
-     */
-    public void addBitmapDrawableFilter(BitmapFilter filter) {
-        mBitmapFilters.add(0, filter);
-    }
-
-    /**
-     * Adds a new view filter.
-     *
-     * @param filter a reference to the filter implementation.
-     */
-    public void addViewFilter(ViewInterceptor filter) {
-        mViewFilters.add(0, filter);
-    }
-
-    /**
-     * Retrieve a view for the given context.
-     *
-     * @param name    the name of the view.
-     * @param context the context on which the resources are.
-     * @param attrs   the attributes for the view.
-     *
-     * @return a reference to the view constructed
-     */
-    public View getView(String name, Context context, AttributeSet attrs) {
-        for (ViewInterceptor filter : mViewFilters) {
-            final View view = filter.getView(this, name, context, attrs);
-            if (view != null) {
-                return view;
-            }
-        }
-        return null;
-    }
-
-    /**
-     * Creates a copy of the bitmap by replacing the color of every pixel
-     * by accentColor while keeping the alpha value.
-     *
-     * @param bitmap      The original bitmap.
-     * @param accentColor The color to apply to every pixel.
-     *
-     * @return A copy of the given bitmap with the accent color applied.
-     */
-    public static Bitmap applyColor(Bitmap bitmap, int accentColor) {
-        final int r = Color.red(accentColor);
-        final int g = Color.green(accentColor);
-        final int b = Color.blue(accentColor);
-
-        final int width = bitmap.getWidth();
-        final int height = bitmap.getHeight();
-        final int[] pixels = new int[width * height];
-        bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
-
-        for (int i = 0; i < pixels.length; i++) {
-            final int color = pixels[i];
-            final int alpha = Color.alpha(color);
-            pixels[i] = Color.argb(alpha, r, g, b);
-        }
-        return Bitmap.createBitmap(pixels, width, height, Bitmap.Config.ARGB_8888);
-    }
-
 
     /**
      * Define a {@link android.util.LruCache} for filters.

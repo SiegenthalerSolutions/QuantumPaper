@@ -11,7 +11,6 @@
               android:layout_height="match_parent"
               android:padding="16dp">
 
-
     <AutoCompleteTextView
         android:id="@+id/text"
         android:layout_width="match_parent"
@@ -26,18 +25,11 @@
         style="@style/Base.Widget.Quantum.Button.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Small"/>
+        android:text="1"/>
 
     <Button
         style="@style/Base.Widget.Quantum.Button.Borderless.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Borderless-Colored"/>
-
-    <CheckBox
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Normal"/>
-
 </LinearLayout>

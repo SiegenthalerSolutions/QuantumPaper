@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.siegenthaler.quantum_paper;
+package me.siegenthaler.quantum_paper.drawable;
 
 import android.annotation.TargetApi;
 import android.content.res.ColorStateList;
@@ -27,15 +27,15 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 
 /**
- * Base wrapper that delegates all calls to another {@link Drawable}. The wrapped {@link Drawable}
- * <em>must</em> be fully released from any {@link android.view.View} before wrapping,
- * otherwise internal {@link Drawable.Callback} may be dropped.
+ * Base wrapper that delegates all calls to another {@link android.graphics.drawable.Drawable}.
+ * The wrapped {@link android.graphics.drawable.Drawable} <em>must</em> be fully released from
+ * any {@link android.view.View} before wrapping, otherwise internal
+ * {@link android.graphics.drawable.Drawable.Callback} may be dropped.
  */
-public final class QuantumDrawable extends Drawable implements Drawable.Callback {
+public final class FilteredColorStateDrawable extends Drawable implements Drawable.Callback {
     private final Drawable mDrawable;
     private final ColorStateList mTintStateList;
     private final PorterDuff.Mode mTintMode;
-
     private int mCurrentColor;
 
     /**
@@ -45,7 +45,7 @@ public final class QuantumDrawable extends Drawable implements Drawable.Callback
      * @param tintStateList the reference to the color state.
      * @param tintMode      the tint mode of the drawable.
      */
-    public QuantumDrawable(Drawable drawable, ColorStateList tintStateList, PorterDuff.Mode tintMode) {
+    public FilteredColorStateDrawable(Drawable drawable, ColorStateList tintStateList, PorterDuff.Mode tintMode) {
         this.mDrawable = drawable;
         this.mDrawable.setCallback(this);
         this.mTintStateList = tintStateList;
@@ -121,6 +121,14 @@ public final class QuantumDrawable extends Drawable implements Drawable.Callback
      * {@inheritDoc}
      */
     @Override
+    public void clearColorFilter() {
+        mDrawable.clearColorFilter();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public boolean isStateful() {
         return (mTintStateList != null && mTintStateList.isStateful()) || mDrawable.isStateful();
     }
@@ -143,6 +151,14 @@ public final class QuantumDrawable extends Drawable implements Drawable.Callback
     @Override
     public int[] getState() {
         return mDrawable.getState();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ConstantState getConstantState() {
+        return mDrawable.getConstantState();
     }
 
     /**
@@ -321,7 +337,7 @@ public final class QuantumDrawable extends Drawable implements Drawable.Callback
     }
 
     /**
-     * Update the tintint of the {@link Drawable} child.
+     * Update the tintint of the {@link android.graphics.drawable.Drawable} child.
      *
      * @param state an array that contains the state of the drawable.
      */

@@ -17,7 +17,7 @@ package me.siegenthaler.quantum_paper.filter;
 
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
+import android.graphics.drawable.LayerDrawable;
 
 import me.siegenthaler.quantum_paper.QuantumResources;
 import me.siegenthaler.quantum_paper.QuantumTint;
@@ -49,18 +49,30 @@ public class ActionDrawableFilter implements QuantumResources.DrawableFilter {
                     new QuantumTint(R.attr.colorControlNormal));
         } else if (resId == R.drawable.abc_cab_background_top_mtrl_alpha ||
                 resId == R.drawable.abc_cab_background_bottom_mtrl_alpha) {
-            Log.d("UTone", "BOTTOM_TOP");
             return resources.getThemeDrawable(drawable,
                     new QuantumTint(R.attr.colorControlActivated));
         } else if (resId == R.drawable.abc_cab_background_internal_bg) {
-            Log.d("UTone", "INTERNAL_BACKGROUND");
             return resources.getThemeDrawable(drawable,
                     new QuantumTint(android.R.attr.colorBackground, -1, PorterDuff.Mode.MULTIPLY));
         } else if (resId == R.drawable.abc_cab_background_top_material ||
                 resId == R.drawable.abc_cab_background_bottom_material) {
-            Log.d("UTone", "Returning the same");
+            invalidatesActionBarBackground(resources, drawable);
             return drawable;
         }
         return null;
+    }
+
+    /**
+     * Invalidates the {@link android.app.ActionBar} background with the tinted.
+     *
+     * @param resources a reference to the custon resource manager.
+     * @param drawable  a reference to the background layer drawable.
+     */
+    private void invalidatesActionBarBackground(QuantumResources resources, Drawable drawable) {
+        final LayerDrawable layer = (LayerDrawable) drawable;
+        layer.invalidateDrawable(resources.getThemeDrawable(layer.getDrawable(0),
+                new QuantumTint(android.R.attr.colorBackground, -1, PorterDuff.Mode.MULTIPLY)));
+        layer.invalidateDrawable(resources.getThemeDrawable(layer.getDrawable(1),
+                new QuantumTint(R.attr.colorControlActivated)));
     }
 }

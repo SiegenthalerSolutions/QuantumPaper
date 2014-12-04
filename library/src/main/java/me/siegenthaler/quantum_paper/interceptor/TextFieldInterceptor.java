@@ -80,8 +80,7 @@ public class TextFieldInterceptor implements QuantumResources.ViewInterceptor {
     /**
      * (non-doc)
      */
-    private View setViewBackground(QuantumResources resources, Context context, AttributeSet attributes,
-                                   View view, int defStyle) {
+    private View setViewBackground(QuantumResources resources, Context context, AttributeSet attributes, View view, int defStyle) {
         final TypedArray array
                 = context.obtainStyledAttributes(attributes, TINT_ATTRS, defStyle, 0);
         try {

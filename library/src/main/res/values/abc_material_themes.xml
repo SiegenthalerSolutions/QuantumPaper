@@ -130,12 +130,11 @@
         <!-- <item name="android:listPreferredItemPaddingStart">16dip</item> -->
         <!-- <item name="android:listPreferredItemPaddingEnd">16dip</item> -->
 
-
         <!-- Gallery attributes -->
         <!--<item name="android:galleryItemBackground">@drawable/gallery_item_background</item> -->
 
         <!-- Dialog attributes -->
-        <!--<item name="android:dialogTheme">@style/Theme.Material.Dialog</item> -->
+        <!--<item name="android:dialogTheme">@style/Base.Theme.Quantum.Dialog</item>-->
         <!--<item name="android:dialogTitleIconsDecorLayout">@layout/dialog_title_icons_material</item>-->
         <!--<item name="android:dialogCustomTitleDecorLayout">@layout/dialog_custom_title_material</item>-->
         <!--<item name="android:dialogTitleDecorLayout">@layout/dialog_title_material</item>-->
@@ -151,7 +150,6 @@
 
         <!-- Toast attributes -->
         <!--<item name="android:toastFrameBackground">@drawable/toast_frame</item>-->
-
 
         <!-- Panel attributes -->
         <item name="android:panelBackground">?android:attr/colorBackground</item>
@@ -266,6 +264,66 @@
         <item name="android:buttonBarStyle">@style/Base.Widget.Quantum.ButtonBar</item>
         <item name="android:buttonBarButtonStyle">@style/Base.Widget.Quantum.Button.ButtonBar.AlertDialog</item>
         <item name="android:segmentedButtonStyle">@style/Base.Widget.Quantum.SegmentedButton</item>
+
+        <!-- Preference styles -->
+        <!--
+        <item name="android:preferenceScreenStyle">@style/Preference.Material.PreferenceScreen</item>
+        <item name="android:preferenceActivityStyle">@style/PreferenceActivity.Material</item>
+        <item name="android:preferenceFragmentStyle">@style/PreferenceFragment.Material</item>
+        <item name="android:preferenceCategoryStyle">@style/Preference.Material.Category</item>
+        <item name="android:preferenceStyle">@style/Preference.Material</item>
+        <item name="android:preferenceInformationStyle">@style/Preference.Material.Information</item>
+        <item name="android:checkBoxPreferenceStyle">@style/Preference.Material.CheckBoxPreference</item>
+        <item name="android:switchPreferenceStyle">@style/Preference.Material.SwitchPreference</item>
+        <item name="android:seekBarPreferenceStyle">@style/Preference.Material.SeekBarPreference</item>
+        <item name="android:yesNoPreferenceStyle">@style/Preference.Material.DialogPreference.YesNoPreference</item>
+        <item name="android:dialogPreferenceStyle">@style/Preference.Material.DialogPreference</item>
+        <item name="android:editTextPreferenceStyle">@style/Preference.Material.DialogPreference.EditTextPreference</item>
+        <item name="android:ringtonePreferenceStyle">@style/Preference.Material.RingtonePreference</item>
+        <item name="android:preferenceLayoutChild">@layout/preference_child_material</item>
+        <item name="android:preferencePanelStyle">@style/PreferencePanel.Material</item>
+        <item name="android:preferenceHeaderPanelStyle">@style/PreferenceHeaderPanel.Material</item>
+        <item name="android:preferenceListStyle">@style/PreferenceHeaderList.Material</item>
+        <item name="android:preferenceFragmentListStyle">@style/PreferenceFragmentList.Material</item>
+        <item name="android:preferenceFragmentPaddingSide">@dimen/preference_fragment_padding_side_material</item>
+        <item name="android:detailsElementBackground">?attr/colorBackground</item>-->
+
+        <!-- Search widget styles -->
+        <!--<item name="android:searchWidgetCorpusItemBackground">@color/search_widget_corpus_item_background</item>-->
+
+        <!-- SearchView attributes -->
+        <!--
+        <item name="android:searchViewStyle">@style/Widget.Material.SearchView</item>
+        <item name="android:searchDialogTheme">@style/Theme.Material.SearchBar</item>-->
+
+        <!-- PreferenceFrameLayout attributes -->
+        <!-- <item name="android:preferenceFrameLayoutStyle">@style/Widget.Material.PreferenceFrameLayout</item>-->
+
+        <!-- NumberPicker style-->
+        <!-- <item name="android:numberPickerStyle">@style/Widget.Material.NumberPicker</item>-->
+
+        <!-- CalendarView style-->
+        <!--<item name="android:calendarViewStyle">@style/Widget.Material.CalendarView</item>-->
+
+        <!-- TimePicker style -->
+        <!-- <item name="android:timePickerStyle">@style/Widget.Material.TimePicker</item>-->
+
+        <!-- TimePicker dialog theme -->
+        <!-- <item name="android:timePickerDialogTheme">?attr/dialogTheme</item>-->
+
+        <!-- DatePicker style -->
+        <!--<item name="android:datePickerStyle">@style/Widget.Material.DatePicker</item>-->
+
+        <!-- DatePicker dialog theme -->
+        <!-- <item name="android:datePickerDialogTheme">?attr/dialogTheme</item>-->
+
+        <!-- TODO: This belongs in a FastScroll style -->
+        <!--
+        <item name="android:fastScrollThumbDrawable">@drawable/fastscroll_thumb_material</item>
+        <item name="android:fastScrollPreviewBackgroundLeft">@drawable/fastscroll_label_left_material</item>
+        <item name="android:fastScrollPreviewBackgroundRight">@drawable/fastscroll_label_right_material</item>
+        <item name="android:fastScrollTrackDrawable">@drawable/fastscroll_track_material</item>-->
+        <item name="android:fastScrollOverlayPosition">aboveThumb</item>
 
         <!-- Color palette -->
         <item name="colorPrimaryDark">@color/abc_primary_dark_material_dark</item>

@@ -17,6 +17,7 @@ package me.siegenthaler.quantum_paper.interceptor;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -63,9 +64,7 @@ public class ActionInterceptor implements QuantumResources.ViewInterceptor {
                     .newInstance(context, attributes, DEFAULT_ACTION_MODE_STYLE);
             final TypedArray array
                     = context.obtainStyledAttributes(attributes, TINT_ATTRS, DEFAULT_ACTION_MODE_STYLE, 0);
-
             instance.setBackground(resources.getDrawable(array.getResourceId(0, 0)));
-
             array.recycle();
         } catch (Exception exception) {
             exception.printStackTrace();

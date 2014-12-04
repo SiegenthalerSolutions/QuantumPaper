@@ -28,6 +28,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.LruCache;
 import android.util.TypedValue;
 import android.view.View;
@@ -145,7 +146,6 @@ public final class QuantumResources extends Resources {
     @Override
     public InputStream openRawResource(int resId, TypedValue value) throws NotFoundException {
         final Bitmap bitmap = getBitmapFromResource(resId, value);
-
         Bitmap result;
         if (bitmap != null) {
             for (final BitmapFilter filter : mBitmapFilters) {

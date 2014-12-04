@@ -5,3 +5,7 @@ Replacement of AppCompat for Android devices v16+ fully supporting Material Them
 devices with custom tinting.
 
 (Soon: Replace in-time default controls with extended material controls such as the new EditText).
+
+Screenshot
+==========
+->![Simple](/screenshot/Simple.png)<-

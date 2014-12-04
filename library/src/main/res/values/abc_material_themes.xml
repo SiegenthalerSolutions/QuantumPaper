@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ *************************************************************** ~
+  ~ * This file is subject to the terms and conditions defined in * ~
+  ~ * file 'LICENSE', which is part of this source code package.  * ~
+  ~ *************************************************************** ~
+  -->
+<resources>
+
+    <style name="Platform.Quantum" parent="android:Theme.Holo">
+        <item name="android:colorForeground">@color/abc_bright_foreground_material_dark</item>
+        <item name="android:colorForegroundInverse">@color/abc_bright_foreground_material_light</item>
+        <item name="android:colorBackground">@color/abc_background_material_dark</item>
+        <item name="android:colorBackgroundCacheHint">@color/abc_background_cache_hint_selector_material_dark</item>
+        <item name="android:disabledAlpha">@dimen/disabled_alpha_material_dark</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+
+        <!-- Text styles -->
+        <item name="android:textAppearance">@style/TextAppearance.Quantum</item>
+        <item name="android:textAppearanceInverse">@style/TextAppearance.Quantum.Inverse</item>
+
+        <item name="android:textColorPrimary">@color/abc_primary_text_material_dark</item>
+        <item name="android:textColorPrimaryInverse">@color/abc_primary_text_material_light</item>
+
+        <item name="android:textColorPrimaryDisableOnly">@color/abc_primary_text_disable_only_material_dark</item>
+        <item name="android:textColorSecondary">@color/abc_secondary_text_material_dark</item>
+        <item name="android:textColorSecondaryInverse">@color/abc_secondary_text_material_light</item>
+        <item name="android:textColorTertiary">@color/abc_secondary_text_material_dark</item>
+        <item name="android:textColorTertiaryInverse">@color/abc_secondary_text_material_light</item>
+        <item name="android:textColorHint">@color/abc_hint_foreground_material_dark</item>
+        <item name="android:textColorHintInverse">@color/abc_hint_foreground_material_light</item>
+        <item name="android:textColorHighlight">@color/abc_highlighted_text_material_dark</item>m>
+        <item name="android:textColorHighlightInverse">@color/abc_highlighted_text_material_light</item>
+        <item name="android:textColorLink">@color/abc_link_text_material_dark</item>
+        <item name="android:textColorLinkInverse">@color/abc_link_text_material_light</item>
+        <item name="android:textColorAlertDialogListItem">@color/abc_primary_text_material_dark</item>
+
+        <item name="android:textAppearanceLarge">@style/TextAppearance.Quantum.Large</item>
+        <item name="android:textAppearanceLargeInverse">@style/TextAppearance.Quantum.Large.Inverse</item>
+        <item name="android:textAppearanceMedium">@style/TextAppearance.Quantum.Medium</item>
+        <item name="android:textAppearanceMediumInverse">@style/TextAppearance.Quantum.Medium.Inverse</item>
+        <item name="android:textAppearanceSmall">@style/TextAppearance.Quantum.Small</item>
+        <item name="android:textAppearanceSmallInverse">@style/TextAppearance.Quantum.Small.Inverse</item>
+
+        <item name="android:editTextColor">?android:attr/textColorPrimary</item>
+        <item name="android:editTextBackground">@drawable/abc_edit_text_material</item>
+
+        <item name="android:textAppearanceLargePopupMenu">@style/TextAppearance.Quantum.Widget.PopupMenu.Large</item>
+        <item name="android:textAppearanceSmallPopupMenu">@style/TextAppearance.Quantum.Widget.PopupMenu.Small</item>
+
+        <!-- Button styles -->
+        <item name="android:buttonStyle">@style/Base.Widget.Quantum.Button</item>
+        <item name="android:buttonStyleSmall">@style/Base.Widget.Quantum.Button.Small</item>
+        <!--<item name="android:buttonStyleToggle">@style/Base.Widget.Quantum.Button.Toggle</item>-->
+
+
+        <!-- Text selection handle attributes -->
+        <item name="android:textSelectHandleLeft">@drawable/abc_text_select_handle_left_material</item>
+        <item name="android:textSelectHandleRight">@drawable/abc_text_select_handle_right_material</item>
+        <item name="android:textSelectHandle">@drawable/abc_text_select_handle_middle_material</item>
+        <item name="android:textSelectHandleWindowStyle">@style/Base.Widget.Quantum.TextSelectHandle</item>
+        <item name="android:textSuggestionsWindowStyle">@style/Base.Widget.Quantum.TextSuggestionsPopupWindow</item>
+        <item name="android:textCursorDrawable">@drawable/abc_text_cursor_mtrl_alpha</item>-->
+
+        <!-- Window attributes -->
+        <item name="android:windowBackground">?android:attr/colorBackground</item>
+        <item name="android:windowTitleSize">@dimen/abc_action_bar_default_height_material</item>
+        <!--<item name="android:windowContentTransitions">false</item>-->
+        <!--<item name="android:windowActivityTransitions">true</item>-->
+        <!--<item name="android:windowAnimationStyle">@style/Animation.Material.Activity</item>-->
+        <item name="android:windowActionBar">true</item>
+        <item name="android:windowActionModeOverlay">false</item>
+        <!--<item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
+        <!--<item name="android:windowActionBarFullscreenDecorLayout">@layout/screen_toolbar</item>-->
+        <!--<item name="android:statusBarColor">?attr/colorPrimaryDark</item>-->
+        <!--<item name="android:navigationBarColor">@color/black</item>-->
+        <!--<item name="android:windowEnterTransition">@transition/fade</item>-->
+        <!--<item name="android:windowSharedElementEnterTransition">@transition/move</item>-->
+        <!--<item name="android:windowSharedElementExitTransition">@transition/move</item>-->
+
+        <!-- Color palette -->
+        <item name="colorPrimaryDark">@color/abc_primary_dark_material_dark</item>
+        <item name="colorPrimary">@color/abc_primary_material_dark</item>
+        <item name="colorAccent">@color/abc_accent_material_dark</item>
+
+        <item name="colorControlNormal">?android:attr/textColorSecondary</item>
+        <item name="colorControlActivated">?attr/colorAccent</item>
+
+        <item name="colorControlHighlight">@color/abc_ripple_material_dark</item>
+        <item name="colorButtonNormal">@color/abc_btn_default_material_dark</item>
+    </style>
+
+</resources>

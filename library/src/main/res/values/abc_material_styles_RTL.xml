@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ *************************************************************** ~
+  ~ * This file is subject to the terms and conditions defined in * ~
+  ~ * file 'LICENSE', which is part of this source code package.  * ~
+  ~ *************************************************************** ~
+  -->
+<resources>
+
+    <style name="RTL.Widget.Quantum.TextView.SpinnerItem" parent="Base.Widget.Quantum.TextView.SpinnerItem">
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+    </style>
+
+    <style name="RTL.Widget.Quantum.SeekBar" parent="Base.Widget.Quantum.SeekBar">
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingLeft">16dp</item>
+    </style>
+
+    <style name="RTL.Widget.Quantum.ActionButton" parent="Base.Widget.Quantum.ActionButton">
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+    </style>
+
+    <style name="RTL.Widget.Quantum.ActionButton.Overflow" parent="Base.Widget.Quantum.ActionButton.Overflow">
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">12dp</item>
+    </style>
+
+    <style name="RTL.Widget.Quantum.ActionBar.TabView" parent="Base.Widget.Quantum.ActionBar.TabView">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+    </style>
+
+    <style name="RTL.Widget.Quantum.DropDownItem" parent="Base.Widget.Quantum.DropDownItem">
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+    </style>
+
+    <style name="RTL.Widget.Quantum.TextView.ListSeparator" parent="Base.Widget.Quantum.TextView.ListSeparator">
+        <item name="android:paddingLeft">8dp</item>
+    </style>
+
+    <style name="RTL.Widget.Quantum.CheckedTextView" parent="">
+    </style>
+
+</resources>

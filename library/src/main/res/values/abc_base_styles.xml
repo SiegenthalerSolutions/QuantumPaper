@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ *************************************************************** ~
+  ~ * This file is subject to the terms and conditions defined in * ~
+  ~ * file 'LICENSE', which is part of this source code package.  * ~
+  ~ *************************************************************** ~
+  -->
+<resources>
+
+
+    <style name="TextAppearance.Quantum.Widget.PopupMenu.Large"
+           parent="Base.TextAppearance.Quantum.Widget.PopupMenu.Large"/>
+
+    <style name="TextAppearance.Quantum.Widget.PopupMenu.Small"
+           parent="Base.TextAppearance.Quantum.Widget.PopupMenu.Small"/>
+
+    <!-- Text styles -->
+    <style name="TextAppearance.Quantum"
+           parent="Base.TextAppearance.Quantum"/>
+
+    <style name="TextAppearance.Quantum.Display4"
+           parent="Base.TextAppearance.Quantum.Display4"/>
+
+    <style name="TextAppearance.Quantum.Display3"
+           parent="Base.TextAppearance.Quantum.Display3"/>
+
+    <style name="TextAppearance.Quantum.Display2"
+           parent="Base.TextAppearance.Quantum.Display2"/>
+
+    <style name="TextAppearance.Quantum.Display1"
+           parent="Base.TextAppearance.Quantum.Display1"/>
+
+    <style name="TextAppearance.Quantum.Headline"
+           parent="Base.TextAppearance.Quantum.Headline"/>
+
+    <style name="TextAppearance.Quantum.Title"
+           parent="Base.TextAppearance.Quantum.Title"/>
+
+    <style name="TextAppearance.Quantum.Title.Inverse"
+           parent="Base.TextAppearance.Quantum.Title.Inverse"/>
+
+    <style name="TextAppearance.Quantum.Subhead"
+           parent="Base.TextAppearance.Quantum.Subhead"/>
+
+    <style name="TextAppearance.Quantum.Subhead.Inverse"
+           parent="Base.TextAppearance.Quantum.Subhead.Inverse"/>
+
+    <style name="TextAppearance.Quantum.Body2"
+           parent="Base.TextAppearance.Quantum.Body2"/>
+
+    <style name="TextAppearance.Quantum.Body1"
+           parent="Base.TextAppearance.Quantum.Body1"/>
+
+    <style name="TextAppearance.Quantum.Caption"
+           parent="Base.TextAppearance.Quantum.Caption"/>
+
+    <style name="TextAppearance.Quantum.Menu"
+           parent="Base.TextAppearance.Quantum.Menu"/>
+
+    <style name="TextAppearance.Quantum.Inverse"
+           parent="Base.TextAppearance.Quantum.Inverse"/>
+
+    <style name="TextAppearance.Quantum.Large"
+           parent="Base.TextAppearance.Quantum.Large"/>
+
+    <style name="TextAppearance.Quantum.Large.Inverse"
+           parent="Base.TextAppearance.Quantum.Large.Inverse"/>
+
+    <style name="TextAppearance.Quantum.Medium"
+           parent="Base.TextAppearance.Quantum.Medium"/>
+
+    <style name="TextAppearance.Quantum.Medium.Inverse"
+           parent="Base.TextAppearance.Quantum.Medium.Inverse"/>
+
+    <style name="TextAppearance.Quantum.Small"
+           parent="Base.TextAppearance.Quantum.Small"/>
+
+    <style name="TextAppearance.Quantum.Small.Inverse"
+           parent="Base.TextAppearance.Quantum.Small.Inverse"/>
+
+    <style name="TextAppearance.Quantum.Button"
+           parent="Base.TextAppearance.Quantum.Button"/>
+
+    <style name="TextAppearance.Quantum.Widget.Switch"
+           parent="Base.TextAppearance.Quantum.Widget.Switch"/>
+
+    <!-- TODO: More, @see AppCompat -->
+</resources>

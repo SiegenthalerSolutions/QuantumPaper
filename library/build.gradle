@@ -1,0 +1,31 @@
+///
+/// Apply executable plug-in to build the library.
+///
+apply plugin: 'com.android.library'
+
+///
+/// Android information.
+///
+android {
+    ///
+    /// Use API 21 for compiling and building.
+    ///
+    compileSdkVersion 21
+    buildToolsVersion "21.0.2"
+
+    ///
+    /// Application configuration targeting Android 16+.
+    ///
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 21
+    }
+
+    ///
+    /// Use Java-7 byte-codes and features.
+    ///
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+}

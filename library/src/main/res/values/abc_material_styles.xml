@@ -1,0 +1,1043 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ *************************************************************** ~
+  ~ * This file is subject to the terms and conditions defined in * ~
+  ~ * file 'LICENSE', which is part of this source code package.  * ~
+  ~ *************************************************************** ~
+  -->
+<resources>
+
+    <!-- Text styles -->
+    <style name="Base.TextAppearance.Quantum" parent="android:TextAppearance">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textColorHint">?android:attr/textColorHint</item>
+        <item name="android:textColorHighlight">?android:attr/textColorHighlight</item>
+        <item name="android:textColorLink">?android:attr/textColorLink</item>
+        <item name="android:textSize">@dimen/abc_text_size_body_1_material</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Display4">
+        <item name="android:textSize">@dimen/abc_text_size_display_4_material</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Display3">
+        <item name="android:textSize">@dimen/abc_text_size_display_3_material</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Display2">
+        <item name="android:textSize">@dimen/abc_text_size_display_2_material</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Display1">
+        <item name="android:textSize">@dimen/abc_text_size_display_1_material</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Headline">
+        <item name="android:textSize">@dimen/abc_text_size_headline_material</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Title">
+        <item name="android:textSize">@dimen/abc_text_size_title_material</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Title.Inverse">
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+        <item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+        <item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Subhead">
+        <item name="android:textSize">@dimen/abc_text_size_subhead_material</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Subhead.Inverse">
+        <item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+        <item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+        <item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+        <item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Body2">
+        <item name="android:textSize">@dimen/abc_text_size_body_2_material</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Body1">
+        <item name="android:textSize">@dimen/abc_text_size_body_1_material</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Caption">
+        <item name="android:textSize">@dimen/abc_text_size_caption_material</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Menu">
+        <item name="android:textSize">@dimen/abc_text_size_menu_material</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Menu.Inverse">
+        <item name="android:textSize">@dimen/abc_text_size_menu_material</item>
+        <item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+        <item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+        <item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+        <item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Button">
+        <item name="android:textSize">@dimen/abc_text_size_button_material</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Inverse">
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+        <item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+        <item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Large">
+        <item name="android:textSize">@dimen/abc_text_size_large_material</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Large.Inverse">
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+        <item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+        <item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Medium">
+        <item name="android:textSize">@dimen/abc_text_size_medium_material</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Medium.Inverse">
+        <item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+        <item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+        <item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+        <item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Small">
+        <item name="android:textSize">@dimen/abc_text_size_small_material</item>
+        <item name="android:textColor">?android:attr/textColorTertiary</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Small.Inverse">
+        <item name="android:textColor">?android:attr/textColorTertiaryInverse</item>
+        <item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+        <item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+        <item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.SearchResult"/>
+
+    <style name="Base.TextAppearance.Quantum.SearchResult.Title" parent="Base.TextAppearance.Quantum.Title"/>
+
+    <style name="Base.TextAppearance.Quantum.SearchResult.Subtitle" parent="Base.TextAppearance.Quantum.Subhead"/>
+
+    <style name="Base.TextAppearance.Quantum.Widget"/>
+
+    <style name="Base.TextAppearance.Quantum.Widget.Button" parent="Base.TextAppearance.Quantum.Button"/>
+
+    <style name="Base.TextAppearance.Quantum.Widget.EditText">
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Widget.Switch" parent="Base.TextAppearance.Quantum.Button"/>
+
+    <style name="Base.TextAppearance.Quantum.Widget.PopupMenu"/>
+
+    <style name="Base.TextAppearance.Quantum.Widget.PopupMenu.Large" parent="Base.TextAppearance.Quantum.Menu"/>
+
+    <style name="Base.TextAppearance.Quantum.Widget.PopupMenu.Small" parent="Base.TextAppearance.Quantum.Menu"/>
+
+    <style name="Base.TextAppearance.Quantum.Widget.DropDownHint" parent="Base.TextAppearance.Quantum.Menu"/>
+
+    <style name="Base.TextAppearance.Quantum.Widget.IconMenu.Item" parent="Base.TextAppearance.Quantum.Small">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Widget.TabWidget" parent="Base.TextAppearance.Quantum.Button"/>
+
+    <style name="Base.TextAppearance.Quantum.Widget.TextView">
+        <item name="android:textColor">?android:attr/textColorPrimaryDisableOnly</item>
+        <item name="android:textColorHint">?android:attr/textColorHint</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Widget.TextView.PopupMenu" parent="Base.TextAppearance.Quantum.Menu"/>
+
+    <style name="Base.TextAppearance.Quantum.Widget.TextView.SpinnerItem" parent="Base.TextAppearance.Quantum.Menu"/>
+
+    <style name="Base.TextAppearance.Quantum.Widget.DropDownItem" parent="Base.TextAppearance.Quantum.Menu">
+        <item name="android:textColor">?android:attr/textColorPrimaryDisableOnly</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Widget.ActionMode"/>
+
+    <style name="Base.TextAppearance.Quantum.Widget.ActionMode.Title" parent="Base.TextAppearance.Quantum.Title">
+        <item name="android:textSize">@dimen/abc_text_size_title_material_toolbar</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Widget.ActionMode.Title.Inverse" parent="Base.TextAppearance.Quantum.Title.Inverse">
+        <item name="android:textSize">@dimen/abc_text_size_title_material_toolbar</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Widget.ActionMode.Subtitle" parent="Base.TextAppearance.Quantum.Subhead">
+        <item name="android:textSize">@dimen/abc_text_size_subtitle_material_toolbar</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Widget.ActionMode.Subtitle.Inverse" parent="Base.TextAppearance.Quantum.Subhead.Inverse">
+        <item name="android:textSize">@dimen/abc_text_size_subtitle_material_toolbar</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Widget.ActionBar.Title" parent="Base.TextAppearance.Quantum.Title">
+        <item name="android:textSize">@dimen/abc_text_size_title_material_toolbar</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Widget.ActionBar.Title.Inverse" parent="Base.TextAppearance.Quantum.Title.Inverse">
+        <item name="android:textSize">@dimen/abc_text_size_title_material_toolbar</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Widget.ActionBar.Subtitle" parent="Base.TextAppearance.Quantum.Subhead">
+        <item name="android:textSize">@dimen/abc_text_size_subtitle_material_toolbar</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Widget.ActionBar.Subtitle.Inverse" parent="Base.TextAppearance.Quantum.Subhead.Inverse">
+        <item name="android:textSize">@dimen/abc_text_size_subtitle_material_toolbar</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Widget.ActionBar.Menu" parent="Base.TextAppearance.Quantum.Menu">
+        <item name="android:textColor">?android:attr/actionMenuTextColor</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Widget.ActionBar.Menu.Inverse" parent="Base.TextAppearance.Quantum.Menu.Inverse">
+        <item name="android:textColor">?android:attr/actionMenuTextColor</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Widget.Toolbar.Title"
+           parent="Base.TextAppearance.Quantum.Widget.ActionBar.Title"/>
+
+    <style name="Base.TextAppearance.Quantum.Widget.Toolbar.Subtitle"
+           parent="Base.TextAppearance.Quantum.Widget.ActionBar.Subtitle"/>
+
+    <style name="Base.TextAppearance.Quantum.WindowTitle" parent="Base.TextAppearance.Quantum.Title"/>
+
+    <style name="Base.TextAppearance.Quantum.DialogWindowTitle" parent="Base.TextAppearance.Quantum.Title"/>
+
+    <style name="Base.TextAppearance.Quantum.CalendarViewWeekDayView" parent="Base.TextAppearance.Quantum.Small">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#505050</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.TimePicker.TimeLabel" parent="Base.TextAppearance.Quantum">
+        <item name="android:textSize">60sp</item>
+        <item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.TimePicker.AmPmLabel" parent="Base.TextAppearance.Quantum">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.DatePicker.DayOfWeekLabel" parent="Base.TextAppearance.Quantum">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.DatePicker.MonthLabel" parent="Base.TextAppearance.Quantum">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.DatePicker.DayOfMonthLabel" parent="Base.TextAppearance.Quantum">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+        <item name="android:textSize">88sp</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.DatePicker.YearLabel" parent="Base.TextAppearance.Quantum">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.DatePicker.List.YearLabel" parent="Base.TextAppearance.Quantum">
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Notification">
+        <item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Notification.Title">
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Notification.Line2">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Notification.Info">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Notification.Time">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Base.TextAppearance.Quantum.Notification.Emphasis">
+        <item name="android:textColor">#66000000</item>
+    </style>
+
+    <!-- Theme Styles (Dark & Light) -->
+    <style name="Base.Quantum" parent=""/>
+
+    <style name="Base.Quantum.Light"/>
+
+    <!-- Widget Styles (Dark) -->
+    <style name="Base.Widget.Quantum" parent="Base.Quantum"/>
+
+    <!-- Bordered ink button -->
+    <style name="Base.Widget.Quantum.Button">
+        <item name="android:background">@drawable/abc_btn_default_material</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceButton</item>
+        <item name="android:minHeight">48dip</item>
+        <item name="android:minWidth">88dip</item>
+        <!--<item name="android:stateListAnimator">@anim/button_state_list_anim_material</item>-->
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+    </style>
+
+    <!-- Small bordered ink button -->
+    <style name="Base.Widget.Quantum.Button.Small">
+        <item name="android:minHeight">48dp</item>
+        <item name="android:minWidth">48dp</item>
+    </style>
+
+    <!-- Borderless ink button -->
+    <style name="Base.Widget.Quantum.Button.Borderless">
+        <item name="android:background">@drawable/abc_btn_borderless_material</item>
+        <!--<item name="android:stateListAnimator">@null</item>-->
+    </style>
+
+    <!-- Colored borderless ink button -->
+    <style name="Base.Widget.Quantum.Button.Borderless.Colored">
+        <item name="android:textColor">?attr/colorAccent</item>
+        <!--<item name="android:stateListAnimator">@anim/disabled_anim_material</item>-->
+    </style>
+
+    <!-- Alert dialog button bar button -->
+    <style name="Base.Widget.Quantum.Button.ButtonBar.AlertDialog" parent="Base.Widget.Quantum.Button.Borderless.Colored">
+        <item name="android:minWidth">64dp</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <!-- Small borderless ink button -->
+    <style name="Base.Widget.Quantum.Button.Borderless.Small">
+        <item name="android:minHeight">48dip</item>
+        <item name="android:minWidth">48dip</item>
+    </style>
+
+    <!-- TODO: Toggle Button -->
+    <!--
+    <style name="Base.Widget.Quantum.Button.Toggle">
+        <item name="android:background">@drawable/abc_btn_toggle_material</item>
+    </style>-->
+
+    <style name="Base.Widget.Quantum.ButtonBar">
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.ButtonBar.AlertDialog">
+        <item name="android:background">@null</item>
+    </style>
+
+    <!-- TODO: Search View -->
+    <style name="Base.Widget.Quantum.SearchView" parent="">
+        <!--
+        <item name="android:layout">@layout/search_view</item>
+        <item name="android:queryBackground">@drawable/textfield_search_material</item>
+        <item name="android:submitBackground">@drawable/textfield_search_material</item>
+        <item name="android:closeIcon">@drawable/ic_clear_material</item>
+        <item name="android:searchIcon">@drawable/ic_search_api_material</item>
+        <item name="android:goIcon">@drawable/ic_go_search_api_material</item>
+        <item name="android:voiceIcon">@drawable/ic_voice_search_api_material</item>
+        <item name="android:commitIcon">@drawable/ic_commit_search_api_material</item>
+        <item name="android:suggestionRowLayout">@layout/search_dropdown_item_icons_2line</item>
+        -->
+    </style>
+
+    <style name="Base.Widget.Quantum.SegmentedButton" parent="">
+        <item name="android:background">@drawable/abc_btn_group_holo_dark</item>-->
+        <item name="android:divider">?android:attr/dividerVertical</item>
+        <item name="android:showDividers">middle</item>
+    </style>
+
+    <!-- TODO: StackView -->
+    <!--
+    <style name="Base.Widget.Quantum.StackView">
+        <item name="android:resOutColor">@color/holo_blue_light</item>
+        <item name="android:clickColor">@color/holo_blue_light</item>
+    </style>-->
+
+    <style name="Base.Widget.Quantum.TextView" parent="@android:style/Widget.TextView"/>
+
+    <style name="Base.Widget.Quantum.TextView.ListSeparator" parent="">
+        <item name="android:background">@drawable/abc_list_section_divider_material</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.TextView.SpinnerItem" parent="@android:style/Widget.TextView.SpinnerItem">
+        <item name="android:textAppearance">@style/Base.TextAppearance.Quantum.Widget.TextView.SpinnerItem</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.CheckedTextView" parent="">
+    </style>
+
+    <!-- TODO -->
+    <style name="Base.Widget.Quantum.TextSelectHandle" parent="">
+        <!--<item name="android:popupAnimationStyle">@style/Animation.TextSelectHandle</item>-->
+    </style>
+
+    <!-- TODO -->
+    <style name="Base.Widget.Quantum.TextSuggestionsPopupWindow" parent="">
+        <!--
+        <item name="android:dropDownSelector">@drawable/list_selector_background</item>
+        <item name="android:popupBackground">@drawable/text_edit_suggestions_window</item>-->
+        <item name="android:dropDownWidth">wrap_content</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.AbsListView" parent="@android:style/Widget.AbsListView"/>
+
+    <style name="Base.Widget.Quantum.AutoCompleteTextView" parent="@android:style/Widget.AutoCompleteTextView">
+        <item name="android:dropDownSelector">?android:attr/listChoiceBackgroundIndicator</item>
+        <item name="android:popupBackground">@drawable/abc_popup_background_material</item>
+        <!--<item name="android:popupElevation">@dimen/floating_window_z</item>-->
+    </style>
+
+    <style name="Base.Widget.Quantum.CompoundButton" parent="@android:style/Widget.CompoundButton"/>
+
+    <style name="Base.Widget.Quantum.CompoundButton.CheckBox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.CompoundButton.RadioButton" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.CompoundButton.Star" parent="@android:style/Widget.CompoundButton.Star">
+        <item name="android:button">@drawable/abc_btn_star_material</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.CompoundButton.Switch">
+        <item name="android:track">@drawable/abc_switch_track_material</item>
+        <item name="android:thumb">@drawable/abc_switch_thumb_material</item>
+        <item name="android:switchTextAppearance">@style/Base.TextAppearance.Quantum.Widget.Switch</item>
+        <!--
+        <item name="android:textOn">@android:string/capital_on</item>
+        <item name="android:textOff">@android:string/capital_off</item>-->
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <!--<item name="android:showText">false</item>-->
+    </style>
+
+    <style name="Base.Widget.Quantum.EditText" parent="@android:style/Widget.EditText"/>
+
+    <style name="Base.Widget.Quantum.ExpandableListView" parent="Base.Widget.Quantum.ListView">
+        <item name="android:groupIndicator">@drawable/abc_expander_group_material</item>
+        <item name="android:indicatorLeft">?android:attr/expandableListPreferredItemIndicatorLeft</item>
+        <item name="android:indicatorRight">?android:attr/expandableListPreferredItemIndicatorRight</item>
+        <item name="android:childDivider">?android:attr/listDivider</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.ExpandableListView.White"/>
+
+    <style name="Base.Widget.Quantum.FragmentBreadCrumbs" parent="@android:style/Widget.FragmentBreadCrumbs">
+        <!--
+        <item name="android:itemLayout">@layout/fragment_bread_crumb_item_material</item>
+        <item name="android:itemColor">@color/primary_text_default_material_light</item>-->
+    </style>
+
+    <style name="Base.Widget.Quantum.Gallery" parent="@android:style/Widget.Gallery"/>
+
+    <style name="Base.Widget.Quantum.GridView" parent="@android:style/Widget.GridView">
+        <item name="android:listSelector">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.CalendarView" parent="@android:style/Widget.CalendarView">
+        <item name="android:selectedWeekBackgroundColor">#330099FF</item>
+        <item name="android:focusedMonthDateColor">#FFFFFFFF</item>
+        <item name="android:unfocusedMonthDateColor">#66FFFFFF</item>
+        <item name="android:weekNumberColor">#33FFFFFF</item>
+        <item name="android:weekSeparatorLineColor">#19FFFFFF</item>
+        <!--<item name="android:selectedDateVerticalBar">@drawable/day_picker_week_view_dayline_holo</item>-->
+        <item name="android:weekDayTextAppearance">@style/Base.TextAppearance.Quantum.CalendarViewWeekDayView</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.ImageButton" parent="@android:style/Widget.ImageButton">
+        <item name="android:background">@drawable/abc_btn_default_material</item>
+    </style>
+
+    <!-- TODO: NumberPicker
+    <style name="Base.Widget.Quantum.NumberPicker" parent="@android:style/Widget.NumberPicker">
+        <item name="android:internalLayout">@layout/number_picker_with_selector_wheel</item>
+        <item name="android:solidColor">@android:color/transparent</item>
+    </style>-->
+
+    <!-- TODO: TimePicker
+    <style name="Base.Widget.Quantum.TimePicker" parent="@android:style/Widget.TimePicker">
+        <item name="android:timePickerMode">clock</item>
+        <item name="android:legacyLayout">@layout/time_picker_legacy_holo</item>
+
+        <item name="android:internalLayout">@layout/time_picker_holo</item>
+        <item name="android:headerTimeTextAppearance">@style/TextAppearance.Quantum.TimePicker.TimeLabel</item>
+        <item name="android:headerAmPmTextAppearance">@style/TextAppearance.Quantum.TimePicker.AmPmLabel</item>
+        <item name="android:headerSelectedTextColor">?attr/textColorPrimaryInverse</item>
+        <item name="android:headerBackground">@drawable/time_picker_header_material</item>
+        <item name="android:numbersTextColor">?attr/textColorSecondary</item>
+        <item name="android:numbersBackgroundColor">#10ffffff</item>
+        <item name="android:amPmTextColor">?attr/textColorSecondary</item>
+        <item name="android:amPmBackgroundColor">@color/transparent</item>
+        <item name="android:amPmSelectedBackgroundColor">?attr/colorControlActivated</item>
+        <item name="android:numbersSelectorColor">?attr/colorControlActivated</item>
+    </style> -->
+
+    <!-- TODO: DatePicker -->
+    <style name="Base.Widget.Quantum.DatePicker" parent="@android:style/Widget.DatePicker">
+        <!--
+        <item name="android:datePickerMode">calendar</item>
+        <item name="android:legacyLayout">@layout/date_picker_legacy_holo</item>
+        <item name="android:internalLayout">@layout/date_picker_holo</item>
+        <item name="android:calendarViewShown">true</item>
+        <item name="android:dayOfWeekBackground">#10000000</item>
+        <item name="android:dayOfWeekTextAppearance">@style/TextAppearance.Quantum.DatePicker.DayOfWeekLabel</item>
+        <item name="android:headerMonthTextAppearance">@style/TextAppearance.Quantum.DatePicker.MonthLabel</item>
+        <item name="android:headerDayOfMonthTextAppearance">@style/TextAppearance.Quantum.DatePicker.DayOfMonthLabel</item>
+        <item name="android:headerYearTextAppearance">@style/TextAppearance.Quantum.DatePicker.YearLabel</item>
+        <item name="android:headerSelectedTextColor">?attr/textColorPrimaryInverse</item>
+        <item name="android:headerBackground">?attr/colorAccent</item>
+        <item name="android:yearListItemTextAppearance">@style/TextAppearance.Quantum.DatePicker.List.YearLabel</item>
+        <item name="android:yearListSelectorColor">?attr/colorControlActivated</item>
+        <item name="android:calendarTextColor">?attr/textColorSecondary</item>
+        <item name="android:calendarSelectedTextColor">?attr/colorControlActivated</item> -->
+    </style>
+
+    <style name="Base.Widget.Quantum.ActivityChooserView" parent="">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/abc_ab_share_pack_material</item>
+        <item name="android:divider">?android:attr/dividerVertical</item>
+        <item name="android:showDividers">middle</item>
+        <item name="android:dividerPadding">6dip</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.ImageWell" parent="@android:style/Widget.ImageWell"/>
+
+    <style name="Base.Widget.Quantum.ListView" parent="@android:style/Widget.ListView">
+        <item name="android:divider">?android:attr/listDivider</item>
+        <item name="android:listSelector">?android:attr/listChoiceBackgroundIndicator</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.ListView.DropDown">
+        <item name="android:divider">@null</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.ListView.White"/>
+
+    <style name="Base.Widget.Quantum.PopupWindow" parent="@android:style/Widget.PopupWindow"/>
+
+    <style name="Base.Widget.Quantum.PopupWindow.ActionMode">
+        <item name="android:popupBackground">@drawable/abc_popup_background_material</item>
+        <!--<item name="android:popupElevation">@dimen/floating_window_z</item>-->
+        <!--<item name="android:popupAnimationStyle">@style/Animation.PopupWindow.ActionMode</item>-->
+    </style>
+
+    <!-- TODO: ProgressBar (Animation) -->
+    <style name="Base.Widget.Quantum.ProgressBar" parent="@android:style/Widget.ProgressBar">
+        <!--<item name="android:indeterminateDrawable">@drawable/progress_medium_material</item>-->
+    </style>
+
+    <style name="Base.Widget.Quantum.ProgressBar.Inverse"/>
+
+    <!-- TODO: ProgressBar (Animation) -->
+    <style name="Base.Widget.Quantum.ProgressBar.Horizontal" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <!--
+        <item name="android:progressDrawable">@drawable/progress_horizontal_material</item>
+        <item name="android:indeterminateDrawable">@drawable/progress_indeterminate_horizontal_material</item>-->
+        <item name="android:minHeight">16dip</item>
+        <item name="android:maxHeight">16dip</item>
+    </style>
+
+    <!-- TODO: ProgressBar (Animation) -->
+    <style name="Base.Widget.Quantum.ProgressBar.Small" parent="@android:style/Widget.ProgressBar.Small">
+        <!--<item name="android:indeterminateDrawable">@drawable/progress_small_material</item>-->
+    </style>
+
+    <style name="Base.Widget.Quantum.ProgressBar.Small.Inverse"/>
+
+    <style name="Base.Widget.Quantum.ProgressBar.Small.Title"/>
+
+    <!-- TODO: ProgressBar (Animation) -->
+    <style name="Base.Widget.Quantum.ProgressBar.Large" parent="@android:style/Widget.ProgressBar.Large">
+        <!--<item name="android:indeterminateDrawable">@drawable/progress_large_material</item>-->
+    </style>
+
+    <style name="Base.Widget.Quantum.ProgressBar.Large.Inverse"/>
+
+    <!-- TODO: SEEKBAR (Animation) -->
+    <style name="Base.Widget.Quantum.SeekBar">
+        <item name="android:indeterminateOnly">false</item>
+        <!--
+        <item name="android:progressDrawable">@drawable/scrubber_progress_horizontal_material</item>
+        <item name="android:indeterminateDrawable">@drawable/scrubber_progress_horizontal_material</item>
+        <item name="android:thumb">@drawable/scrubber_control_material_anim</item>-->
+        <!--<item name="android:splitTrack">true</item>-->
+        <item name="android:focusable">true</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <!-- TODO: RatingBar (Animation) -->
+    <style name="Base.Widget.Quantum.RatingBar" parent="@android:style/Widget.RatingBar">
+        <!--
+        <item name="android:progressDrawable">@drawable/ratingbar_full_material</item>
+        <item name="android:indeterminateDrawable">@drawable/ratingbar_full_material</item>-->
+    </style>
+
+    <!-- TODO: RatingBar (Animation) -->
+    <style name="Base.Widget.Quantum.RatingBar.Indicator" parent="">
+        <!--
+        <item name="android:progressDrawable">@drawable/ratingbar_holo_dark</item>
+        <item name="android:indeterminateDrawable">@drawable/ratingbar_holo_dark</item>-->
+        <item name="android:minHeight">35dp</item>
+        <item name="android:maxHeight">35dp</item>
+        <item name="android:thumb">@null</item>
+        <item name="android:isIndicator">true</item>
+        <item name="android:indeterminateOnly">false</item>
+    </style>
+
+    <!-- TODO: RatingBar (Animation) -->
+    <style name="Base.Widget.Quantum.RatingBar.Small" parent="">
+        <!--
+        <item name="android:progressDrawable">@drawable/ratingbar_small_holo_dark</item>
+        <item name="android:indeterminateDrawable">@drawable/ratingbar_small_holo_dark</item>-->
+        <item name="android:minHeight">16dp</item>
+        <item name="android:maxHeight">16dp</item>
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:thumb">@null</item>
+        <item name="android:isIndicator">true</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.ScrollView" parent="@android:style/Widget.ScrollView"/>
+
+    <style name="Base.Widget.Quantum.HorizontalScrollView" parent="">
+        <item name="android:scrollbars">horizontal</item>
+        <item name="android:fadingEdge">horizontal</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.Spinner" parent="@android:style/Widget.Spinner.DropDown">
+        <item name="android:background">@drawable/abc_spinner_background_material</item>
+        <item name="android:dropDownSelector">?android:attr/listChoiceBackgroundIndicator</item>
+        <item name="android:popupBackground">@drawable/abc_popup_background_material</item>
+        <!--<item name="android:popupElevation">@dimen/floating_window_z</item>-->
+        <item name="android:dropDownVerticalOffset">0dip</item>
+        <item name="android:dropDownHorizontalOffset">0dip</item>
+        <!--<item name="android:overlapAnchor">true</item>-->
+        <item name="android:dropDownWidth">wrap_content</item>
+        <!--<item name="android:popupPromptView">@layout/simple_dropdown_hint</item>-->
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:addStatesFromChildren">true</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.Spinner.DropDown"/>
+
+    <style name="Base.Widget.Quantum.Spinner.DropDown.ActionBar">
+        <item name="android:background">@drawable/abc_spinner_background_material</item>
+        <!--<item name="android:overlapAnchor">true</item>-->
+    </style>
+
+    <style name="Base.Widget.Quantum.Spinner.Underlined">
+        <item name="android:background">@drawable/abc_spinner_textfield_background_material</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.TabWidget" parent="@android:style/Widget.TabWidget">
+        <item name="android:tabStripLeft">@null</item>
+        <item name="android:tabStripRight">@null</item>
+        <item name="android:tabStripEnabled">false</item>
+        <item name="android:divider">?android:attr/dividerVertical</item>
+        <item name="android:showDividers">middle</item>
+        <item name="android:dividerPadding">8dip</item>
+        <item name="android:measureWithLargestChild">true</item>
+        <!--<item name="android:tabLayout">@layout/tab_indicator_material</item>-->
+    </style>
+
+    <style name="Base.Widget.Quantum.Tab" parent="Base.Widget.Quantum.ActionBar.TabView">
+        <item name="android:background">@drawable/abc_tab_indicator_material</item>
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:minWidth">80dip</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.TabText" parent="Base.Widget.Quantum.ActionBar.TabText">
+        <item name="android:maxWidth">180dip</item>
+    </style>
+
+    <!-- TODO: Toolbar -->
+    <!--
+    <style name="Base.Widget.Quantum.Toolbar" parent="@android:style/Base.Widget.Toolbar">
+        <item name="android:navigationButtonStyle">@style/Widget.Quantum.Toolbar.Button.Navigation</item>
+        <item name="android:titleTextAppearance">@style/TextAppearance.Quantum.Widget.Toolbar.Title</item>
+        <item name="android:subtitleTextAppearance">@style/TextAppearance.Quantum.Widget.Toolbar.Subtitle</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.Toolbar.Button.Navigation" parent="Base.Widget.Toolbar.Button.Navigation">
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>-->
+
+    <style name="Base.Widget.Quantum.DropDownItem" parent="@android:style/Widget.DropDownItem">
+        <item name="android:textAppearance">@style/Base.TextAppearance.Quantum.Widget.DropDownItem</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.DropDownItem.Spinner"/>
+
+    <style name="Base.Widget.Quantum.KeyboardView" parent="@android:style/Widget.KeyboardView"/>
+
+    <style name="Base.Widget.Quantum.ListPopupWindow" parent="@android:style/Widget.ListPopupWindow">
+        <item name="android:dropDownSelector">?android:attr/listChoiceBackgroundIndicator</item>
+        <item name="android:popupBackground">@drawable/abc_popup_background_material</item>
+        <!--<item name="android:popupElevation">@dimen/abc_floating_window_z</item>
+        <item name="android:popupAnimationStyle">@style/Animation.Quantum.Popup</item>-->
+        <item name="android:dropDownVerticalOffset">0dip</item>
+        <item name="android:dropDownHorizontalOffset">0dip</item>
+        <item name="android:dropDownWidth">wrap_content</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.PopupMenu" parent="Base.Widget.Quantum.ListPopupWindow"/>
+
+    <style name="Base.Widget.Quantum.PopupMenu.Overflow">
+        <!--<item name="android:overlapAnchor">true</item>-->
+        <item name="android:dropDownHorizontalOffset">-4dip</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.ActionButton" parent="@android:style/Widget.ActionButton">
+        <item name="android:minWidth">@dimen/abc_action_button_min_width_material</item>
+        <item name="android:minHeight">@dimen/abc_action_button_min_height_material</item>
+        <item name="android:gravity">center</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:maxLines">2</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.ActionButton.CloseMode">
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.ActionButton.Overflow">
+        <item name="android:src">@drawable/abc_ic_menu_moreoverflow_mtrl_alpha</item>
+        <item name="android:background">?android:attr/actionBarItemBackground</item>
+        <item name="android:minWidth">@dimen/abc_action_button_min_width_overflow_material</item>
+        <item name="android:minHeight">@dimen/abc_action_button_min_height_material</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.ActionBar.TabView" parent="@android:style/Widget.ActionBar.TabView">
+        <item name="android:background">@drawable/abc_tab_indicator_material</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.ActionBar.TabBar" parent="@android:style/Widget.ActionBar.TabBar">
+        <item name="android:divider">?android:attr/actionBarDivider</item>
+        <item name="android:showDividers">middle</item>
+        <item name="android:dividerPadding">12dip</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.ActionBar.TabText" parent="@android:style/Widget.ActionBar.TabText">
+        <item name="android:textAppearance">@style/Base.TextAppearance.Quantum.Medium</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:maxLines">2</item>
+    </style>
+
+    <!-- TODO: Tab Layout -->
+    <style name="Base.Widget.Quantum.ActionBar" parent="@android:style/Widget.ActionBar">
+        <item name="android:background">@null</item>
+        <item name="android:backgroundStacked">@null</item>
+        <item name="android:backgroundSplit">@null</item>
+        <item name="android:displayOptions">showTitle</item>
+        <item name="android:divider">?android:attr/dividerVertical</item>
+        <item name="android:titleTextStyle">@style/Base.TextAppearance.Quantum.Widget.ActionBar.Title</item>
+        <item name="android:subtitleTextStyle">@style/Base.TextAppearance.Quantum.Widget.ActionBar.Subtitle</item>
+        <item name="android:progressBarStyle">?android:attr/progressBarStyleHorizontal</item>
+        <item name="android:indeterminateProgressStyle">?android:attr/progressBarStyle</item>
+        <item name="android:progressBarPadding">32dip</item>
+        <item name="android:itemPadding">8dip</item>
+        <!--<item name="android:homeLayout">@layout/action_bar_home_material</item>-->
+        <item name="android:gravity">center_vertical</item>
+        <!--
+        <item name="android:contentInsetStart">16dp</item>
+        <item name="android:elevation">8dp</item>
+        <item name="android:popupTheme">?attr/actionBarPopupTheme</item>-->
+    </style>
+
+    <style name="Base.Widget.Quantum.ActionBar.Solid">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:backgroundStacked">?attr/colorPrimary</item>
+        <item name="android:backgroundSplit">?attr/colorPrimary</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.ActionMode" parent="">
+        <item name="android:background">?android:attr/actionModeBackground</item>
+        <item name="android:backgroundSplit">?android:attr/actionModeSplitBackground</item>
+        <item name="android:height">?android:attr/actionBarSize</item>
+        <item name="android:titleTextStyle">@style/Base.TextAppearance.Quantum.Widget.ActionMode.Title</item>
+        <item name="android:subtitleTextStyle">@style/Base.TextAppearance.Quantum.Widget.ActionMode.Subtitle</item>
+        <!--<item name="android:closeItemLayout">@layout/action_mode_close_item_material</item>-->
+    </style>
+
+    <!--
+    <style name="Base.Widget.Quantum.FastScroll" parent="@android:style/Widget.FastScroll">
+        <item name="android:thumbMinWidth">0dp</item>
+        <item name="android:thumbMinHeight">0dp</item>
+        <item name="android:minWidth">88dp</item>
+        <item name="android:minHeight">88dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:textSize">45sp</item>
+    </style>-->
+
+    <style name="Base.Widget.Quantum.PreferenceFrameLayout">
+        <!--
+        <item name="android:borderTop">0dip</item>
+        <item name="android:borderBottom">@dimen/preference_fragment_padding_bottom</item>
+        <item name="android:borderLeft">?attr/preferenceFragmentPaddingSide</item>
+        <item name="android:borderRight">?attr/preferenceFragmentPaddingSide</item>-->
+    </style>
+
+    <style name="Base.Widget.Quantum.MediaRouteButton">
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <!--<item name="android:externalRouteEnabledDrawable">@drawable/ic_media_route_material</item>-->
+        <item name="android:minWidth">56dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <!-- Widget Styles (Light) -->
+    <style name="Base.Widget.Quantum.Light" parent="Base.Widget.Quantum"/>
+
+    <style name="Base.Widget.Quantum.Light.Button" parent="Base.Widget.Quantum.Button"/>
+
+    <style name="Base.Widget.Quantum.Light.Button.Small" parent="Base.Widget.Quantum.Button.Small"/>
+
+    <style name="Base.Widget.Quantum.Light.Button.Borderless" parent="Base.Widget.Quantum.Button.Borderless"/>
+
+    <style name="Base.Widget.Quantum.Light.Button.Borderless.Colored" parent="Base.Widget.Quantum.Button.Borderless.Colored"/>
+
+    <style name="Base.Widget.Quantum.Light.Button.ButtonBar.AlertDialog" parent="Base.Widget.Quantum.Button.ButtonBar.AlertDialog"/>
+
+    <style name="Base.Widget.Quantum.Light.Button.Borderless.Small" parent="Base.Widget.Quantum.Button.Borderless.Small"/>
+
+    <!-- <style name="Base.Widget.Quantum.Light.Button.Toggle" parent="Base.Widget.Quantum.Button.Toggle"/>-->
+
+    <style name="Base.Widget.Quantum.Light.ButtonBar" parent="Base.Widget.Quantum.ButtonBar"/>
+
+    <style name="Base.Widget.Quantum.Light.ButtonBar.AlertDialog" parent="Base.Widget.Quantum.ButtonBar.AlertDialog"/>
+
+    <style name="Base.Widget.Quantum.Light.SearchView" parent="Base.Widget.Quantum.SearchView"/>
+
+    <style name="Base.Widget.Quantum.Light.SegmentedButton" parent="Base.Widget.Quantum.SegmentedButton">
+        <!-- <item name="android:background">@drawable/btn_group_holo_light</item>-->
+    </style>
+
+    <!-- <style name="Base.Widget.Quantum.Light.StackView" parent="Base.Widget.Quantum.StackView"/>-->
+
+    <style name="Base.Widget.Quantum.Light.TextView" parent="Base.Widget.Quantum.TextView"/>
+
+    <style name="Base.Widget.Quantum.Light.TextView.ListSeparator" parent="Base.Widget.Quantum.TextView.ListSeparator"/>
+
+    <style name="Base.Widget.Quantum.Light.TextView.SpinnerItem" parent="Base.Widget.Quantum.TextView.SpinnerItem"/>
+
+    <style name="Base.Widget.Quantum.Light.CheckedTextView" parent="Base.Widget.Quantum.CheckedTextView"/>
+
+    <style name="Base.Widget.Quantum.Light.TextSelectHandle" parent="Base.Widget.Quantum.TextSelectHandle"/>
+
+    <style name="Base.Widget.Quantum.Light.TextSuggestionsPopupWindow" parent="Base.Widget.Quantum.TextSuggestionsPopupWindow"/>
+
+    <style name="Base.Widget.Quantum.Light.AbsListView" parent="Base.Widget.Quantum.AbsListView"/>
+
+    <style name="Base.Widget.Quantum.Light.AutoCompleteTextView" parent="Base.Widget.Quantum.AutoCompleteTextView"/>
+
+    <style name="Base.Widget.Quantum.Light.CompoundButton" parent="Base.Widget.Quantum.CompoundButton"/>
+
+    <style name="Base.Widget.Quantum.Light.CompoundButton.CheckBox" parent="Base.Widget.Quantum.CompoundButton.CheckBox"/>
+
+    <style name="Base.Widget.Quantum.Light.CompoundButton.RadioButton" parent="Base.Widget.Quantum.CompoundButton.RadioButton"/>
+
+    <style name="Base.Widget.Quantum.Light.CompoundButton.Star" parent="Base.Widget.Quantum.CompoundButton.Star"/>
+
+    <style name="Base.Widget.Quantum.Light.CompoundButton.Switch" parent="Base.Widget.Quantum.CompoundButton.Switch"/>
+
+    <style name="Base.Widget.Quantum.Light.ListView.DropDown" parent="Base.Widget.Quantum.ListView.DropDown"/>
+
+    <style name="Base.Widget.Quantum.Light.EditText" parent="Base.Widget.Quantum.EditText"/>
+
+    <style name="Base.Widget.Quantum.Light.ExpandableListView" parent="Base.Widget.Quantum.ExpandableListView"/>
+
+    <style name="Base.Widget.Quantum.Light.ExpandableListView.White" parent="Base.Widget.Quantum.ExpandableListView.White"/>
+
+    <style name="Base.Widget.Quantum.Light.FragmentBreadCrumbs" parent="Base.Widget.Quantum.FragmentBreadCrumbs">
+        <!-- <item name="android:itemColor">@color/primary_text_default_material_dark</item>-->
+    </style>
+
+    <style name="Base.Widget.Quantum.Light.Gallery" parent="Base.Widget.Quantum.Gallery"/>
+
+    <style name="Base.Widget.Quantum.Light.GridView" parent="Base.Widget.Quantum.GridView"/>
+
+    <style name="Base.Widget.Quantum.Light.ImageButton" parent="Base.Widget.Quantum.ImageButton"/>
+
+    <style name="Base.Widget.Quantum.Light.CalendarView" parent="Base.Widget.Quantum.CalendarView">
+        <item name="android:selectedWeekBackgroundColor">#330066ff</item>
+        <item name="android:focusedMonthDateColor">#FF000000</item>
+        <item name="android:unfocusedMonthDateColor">#7F08002B</item>
+        <item name="android:weekNumberColor">#7F080021</item>
+        <item name="android:weekSeparatorLineColor">#7F08002A</item>
+        <item name="android:weekDayTextAppearance">@style/Base.TextAppearance.Quantum.CalendarViewWeekDayView</item>
+    </style>
+
+    <!--
+    <style name="Base.Widget.Quantum.Light.NumberPicker" parent="Base.Widget.Quantum.NumberPicker"/>
+    -->
+
+    <!--
+    <style name="Base.Widget.Quantum.Light.TimePicker" parent="Base.Widget.Quantum.TimePicker">
+        <item name="android:numbersBackgroundColor">#10000000</item>
+    </style>-->
+
+    <style name="Base.Widget.Quantum.Light.DatePicker" parent="Base.Widget.Quantum.DatePicker"/>
+
+    <style name="Base.Widget.Quantum.Light.ActivityChooserView" parent="Base.Widget.Quantum.ActivityChooserView"/>
+
+    <style name="Base.Widget.Quantum.Light.ImageWell" parent="Base.Widget.Quantum.ImageWell"/>
+
+    <style name="Base.Widget.Quantum.Light.ListView" parent="Base.Widget.Quantum.ListView"/>
+
+    <style name="Base.Widget.Quantum.Light.ListView.White" parent="Base.Widget.Quantum.ListView.White"/>
+
+    <style name="Base.Widget.Quantum.Light.PopupWindow" parent="Base.Widget.Quantum.PopupWindow"/>
+
+    <style name="Base.Widget.Quantum.Light.PopupWindow.ActionMode" parent="Base.Widget.Quantum.PopupWindow.ActionMode"/>
+
+    <style name="Base.Widget.Quantum.Light.ProgressBar" parent="Base.Widget.Quantum.ProgressBar"/>
+
+    <style name="Base.Widget.Quantum.Light.ProgressBar.Horizontal" parent="Base.Widget.Quantum.ProgressBar.Horizontal"/>
+
+    <style name="Base.Widget.Quantum.Light.ProgressBar.Small" parent="Base.Widget.Quantum.ProgressBar.Small"/>
+
+    <style name="Base.Widget.Quantum.Light.ProgressBar.Small.Title" parent="Base.Widget.Quantum.ProgressBar.Small.Title"/>
+
+    <style name="Base.Widget.Quantum.Light.ProgressBar.Large" parent="Base.Widget.Quantum.ProgressBar.Large"/>
+
+    <style name="Base.Widget.Quantum.Light.ProgressBar.Inverse" parent="Base.Widget.Quantum.ProgressBar.Inverse"/>
+
+    <style name="Base.Widget.Quantum.Light.ProgressBar.Small.Inverse" parent="Base.Widget.Quantum.ProgressBar.Small.Inverse"/>
+
+    <style name="Base.Widget.Quantum.Light.ProgressBar.Large.Inverse" parent="Base.Widget.Quantum.ProgressBar.Large.Inverse"/>
+
+    <style name="Base.Widget.Quantum.Light.SeekBar" parent="Base.Widget.Quantum.SeekBar"/>
+
+    <style name="Base.Widget.Quantum.Light.RatingBar" parent="Base.Widget.Quantum.RatingBar"/>
+
+    <style name="Base.Widget.Quantum.Light.RatingBar.Indicator" parent="Base.Widget.Quantum.RatingBar.Indicator">
+        <!--
+        <item name="android:progressDrawable">@drawable/ratingbar_holo_light</item>
+        <item name="android:indeterminateDrawable">@drawable/ratingbar_holo_light</item>-->
+        <item name="android:minHeight">35dp</item>
+        <item name="android:maxHeight">35dp</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.Light.RatingBar.Small" parent="Base.Widget.Quantum.RatingBar.Small">
+        <!--
+        <item name="android:progressDrawable">@drawable/ratingbar_small_holo_light</item>
+        <item name="android:indeterminateDrawable">@drawable/ratingbar_small_holo_light</item>-->
+        <item name="android:minHeight">16dp</item>
+        <item name="android:maxHeight">16dp</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.Light.ScrollView" parent="Base.Widget.Quantum.ScrollView"/>
+
+    <style name="Base.Widget.Quantum.Light.HorizontalScrollView" parent="Base.Widget.Quantum.HorizontalScrollView"/>
+
+    <style name="Base.Widget.Quantum.Light.Spinner" parent="Base.Widget.Quantum.Spinner"/>
+
+    <style name="Base.Widget.Quantum.Light.Spinner.DropDown" parent="Base.Widget.Quantum.Spinner.DropDown"/>
+
+    <style name="Base.Widget.Quantum.Light.Spinner.DropDown.ActionBar" parent="Base.Widget.Quantum.Spinner.DropDown.ActionBar"/>
+
+    <style name="Base.Widget.Quantum.Light.Spinner.Underlined" parent="Base.Widget.Quantum.Spinner.Underlined"/>
+
+    <style name="Base.Widget.Quantum.Light.TabWidget" parent="Base.Widget.Quantum.TabWidget"/>
+
+    <style name="Base.Widget.Quantum.Light.DropDownItem" parent="Base.Widget.Quantum.DropDownItem"/>
+
+    <style name="Base.Widget.Quantum.Light.DropDownItem.Spinner" parent="Base.Widget.Quantum.DropDownItem.Spinner"/>
+
+    <style name="Base.Widget.Quantum.Light.KeyboardView" parent="Base.Widget.Quantum.KeyboardView"/>
+
+    <style name="Base.Widget.Quantum.Light.ListPopupWindow" parent="Base.Widget.Quantum.ListPopupWindow"/>
+
+    <style name="Base.Widget.Quantum.Light.PopupMenu" parent="Base.Widget.Quantum.ListPopupWindow"/>
+
+    <style name="Base.Widget.Quantum.Light.PopupMenu.Overflow" parent="Base.Widget.Quantum.PopupMenu.Overflow"/>
+
+    <style name="Base.Widget.Quantum.Light.ActionButton" parent="Base.Widget.Quantum.ActionButton"/>
+
+    <style name="Base.Widget.Quantum.Light.ActionButton.Overflow" parent="Base.Widget.Quantum.ActionButton.Overflow"/>
+
+    <style name="Base.Widget.Quantum.Light.Tab" parent="Base.Widget.Quantum.Tab"/>
+
+    <style name="Base.Widget.Quantum.Light.ActionBar.TabView" parent="Base.Widget.Quantum.ActionBar.TabView"/>
+
+    <style name="Base.Widget.Quantum.Light.ActionBar.TabBar" parent="Base.Widget.Quantum.ActionBar.TabBar"/>
+
+    <style name="Base.Widget.Quantum.Light.ActionBar.TabText" parent="Base.Widget.Quantum.ActionBar.TabText"/>
+
+    <style name="Base.Widget.Quantum.Light.ActionMode" parent="Base.Widget.Quantum.ActionMode"/>
+
+    <style name="Base.Widget.Quantum.Light.ActionButton.CloseMode" parent="Base.Widget.Quantum.ActionButton.CloseMode"/>
+
+    <style name="Base.Widget.Quantum.Light.ActionBar" parent="Base.Widget.Quantum.ActionBar"/>
+
+    <style name="Base.Widget.Quantum.Light.ActionBar.Solid" parent="Base.Widget.Quantum.ActionBar.Solid"/>
+
+    <!--
+    <style name="Base.Widget.Quantum.Light.FastScroll" parent="Base.Widget.Quantum.FastScroll"/>-->
+
+    <style name="Base.Widget.Quantum.Light.MediaRouteButton" parent="Base.Widget.Quantum.MediaRouteButton"/>
+</resources>

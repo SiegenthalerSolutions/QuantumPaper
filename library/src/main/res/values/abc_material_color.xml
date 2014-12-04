@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ *************************************************************** ~
+  ~ * This file is subject to the terms and conditions defined in * ~
+  ~ * file 'LICENSE', which is part of this source code package.  * ~
+  ~ *************************************************************** ~
+  -->
+<resources>
+    <color name="abc_background_material_dark">
+        #FF303030
+    </color>
+    <color name="abc_background_material_light">
+        #FFEEEEEE
+    </color>
+    <color name="abc_background_floating_material_dark">
+        #FF424242
+    </color>
+    <color name="abc_background_floating_material_light">
+        #FFEEEEEE
+    </color>
+
+    <color name="abc_primary_material_dark">
+        #FF212121
+    </color>
+    <color name="abc_primary_material_light">
+        #FFBDBDBD
+    </color>
+    <color name="abc_primary_dark_material_dark">
+        #FF000000
+    </color>
+    <color name="abc_primary_dark_material_light">
+        #FF757575
+    </color>
+
+    <color name="abc_ripple_material_dark">
+        #40FFFFFF
+    </color>
+    <color name="abc_ripple_material_light">
+        #40000000
+    </color>
+
+    <color name="abc_accent_material_light">
+        @color/abc_material_deep_teal_500
+    </color>
+    <color name="abc_accent_material_dark">
+        @color/abc_material_deep_teal_200
+    </color>
+
+    <color name="abc_button_material_dark">
+        #FF5A595B
+    </color>
+    <color name="abc_button_material_light">
+        #FFD6D7D7
+    </color>
+
+    <color name="abc_switch_thumb_normal_material_dark">
+        #FFBDBDBD
+    </color>
+    <color name="abc_switch_thumb_normal_material_light">
+        #FFF1F1F1
+    </color>
+    <color name="abc_switch_thumb_disabled_material_dark">
+        #FF616161
+    </color>
+    <color name="abc_switch_thumb_disabled_material_light">
+        #FFBDBDBD
+    </color>
+
+    <color name="abc_bright_foreground_material_dark">
+        @android:color/white
+    </color>
+    <color name="abc_bright_foreground_material_light">
+        @android:color/black
+    </color>
+    <color name="abc_bright_foreground_disabled_material_dark">
+        #80FFFFFF
+    </color>
+    <color name="abc_bright_foreground_disabled_material_light">
+        #80000000
+    </color>
+    <color name="abc_bright_foreground_inverse_material_dark">
+        @color/abc_bright_foreground_material_light
+    </color>
+    <color name="abc_bright_foreground_inverse_material_light">
+        @color/abc_bright_foreground_material_dark
+    </color>
+
+    <color name="abc_dim_foreground_material_dark">
+        #FFBEBEBE
+    </color>
+    <color name="abc_dim_foreground_material_light">
+        #FF323232
+    </color>
+    <color name="abc_dim_foreground_disabled_material_dark">
+        #80BEBEBE
+    </color>
+    <color name="abc_dim_foreground_disabled_material_light">
+        #80323232
+    </color>
+
+    <color name="abc_hint_foreground_material_dark">
+        @color/abc_bright_foreground_disabled_material_dark
+    </color>
+    <color name="abc_hint_foreground_material_light">
+        @color/abc_bright_foreground_disabled_material_light
+    </color>
+
+    <color name="abc_highlighted_text_material_dark">
+        #6680CBC4
+    </color>
+    <color name="abc_highlighted_text_material_light">
+        #66009688
+    </color>
+
+    <color name="abc_link_text_material_dark">
+        @color/abc_material_deep_teal_200
+    </color>
+    <color name="abc_link_text_material_light">
+        @color/abc_material_deep_teal_500
+    </color>
+
+    <color name="abc_primary_text_default_material_light">
+        #DE000000
+    </color>
+    <color name="abc_secondary_text_default_material_light">
+        #8a000000
+    </color>
+
+    <color name="abc_primary_text_default_material_dark">
+        #FFFFFFFF
+    </color>
+    <color name="abc_secondary_text_default_material_dark">
+        #B3FFFFFF
+    </color>
+
+    <item name="disabled_alpha_material_light" format="float" type="dimen">
+        0.26
+    </item>
+    <item name="disabled_alpha_material_dark" format="float" type="dimen">
+        0.30
+    </item>
+
+    <color name="abc_material_deep_teal_200">
+        #FF80CBC4
+    </color>
+    <color name="abc_material_deep_teal_500">
+        #FF009688
+    </color>
+
+    <color name="abc_material_blue_grey_800">
+        #FF37474F
+    </color>
+    <color name="abc_material_blue_grey_900">
+        #FF263238
+    </color>
+    <color name="abc_material_blue_grey_950">
+        #FF21272B
+    </color>
+
+    <color name="abc_timepicker_default_background_material">
+        @color/abc_primary_text_default_material_light
+    </color>
+    <color name="abc_timepicker_default_text_color_material">
+        @android:color/black
+    </color>
+    <color name="abc_timepicker_default_ampm_selected_background_color_material">
+        @color/abc_material_deep_teal_200
+    </color>
+    <color name="abc_timepicker_default_ampm_unselected_background_color_material">
+        @android:color/transparent
+    </color>
+    <color name="abc_timepicker_default_selector_color_material">
+        @color/abc_material_deep_teal_200
+    </color>
+    <color name="abc_timepicker_default_numbers_background_color_material">
+        @android:color/transparent
+    </color>
+
+    <color name="abc_datepicker_default_header_selector_background_material_light">
+        @android:color/white
+    </color>
+    <color name="abc_datepicker_default_header_selector_background_material_dark">
+        #FF303030
+    </color>
+
+    <color name="abc_datepicker_default_header_dayofweek_background_color_material_light">
+        #999999
+    </color>
+    <color name="abc_datepicker_default_header_dayofweek_background_color_material_dark">
+        @android:color/white
+    </color>
+
+    <color name="abc_datepicker_default_normal_text_color_material_light">
+        #FF999999
+    </color>
+    <color name="abc_datepicker_default_normal_text_color_material_dark">
+        @android:color/white
+    </color>
+
+    <color name="abc_datepicker_default_disabled_text_color_material_light">
+        #80999999
+    </color>
+    <color name="abc_datepicker_default_disabled_text_color_material_dark">
+        #80999999
+    </color>
+
+    <color name="abc_datepicker_default_selected_text_color_material_light">
+        #33B5E5
+    </color>
+    <color name="abc_datepicker_default_selected_text_color_material_dark">
+        #33B5E5
+    </color>
+
+    <color name="abc_datepicker_default_pressed_text_color_material_light">
+        #0099CC
+    </color>
+    <color name="abc_datepicker_default_pressed_text_color_material_dark">
+        #0099CC
+    </color>
+
+    <color name="abc_datepicker_default_circle_background_color_material_light">
+        @color/abc_material_deep_teal_500
+    </color>
+    <color name="abc_datepicker_default_circle_background_color_material_dark">
+        @color/abc_material_deep_teal_200
+    </color>
+
+    <color name="abc_datepicker_default_view_animator_color_material_light">
+        #F2F2F2
+    </color>
+    <color name="abc_datepicker_default_view_animator_color_material_dark">
+        #FF303030
+    </color>
+
+</resources>

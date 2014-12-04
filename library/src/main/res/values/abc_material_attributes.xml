@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ *************************************************************** ~
+  ~ * This file is subject to the terms and conditions defined in * ~
+  ~ * file 'LICENSE', which is part of this source code package.  * ~
+  ~ *************************************************************** ~
+  -->
+<resources>
+
+    <!-- These are the standard attributes that make up a complete theme. -->
+    <declare-styleable name="Theme">
+        <!-- =================== -->
+        <!-- Other widget styles -->
+        <!-- =================== -->
+        <eat-comment />
+
+        <!-- Background drawable for borderless standalone items that need focus/pressed states. -->
+        <attr name="selectableItemBackgroundBorderless" format="reference" />
+
+        <!-- ============= -->
+        <!-- Color palette -->
+        <!-- ============= -->
+        <eat-comment />
+
+        <!-- The primary branding color for the app. By default, this is the color applied to the
+             action bar background. -->
+        <attr name="colorPrimary" format="color"/>
+
+        <!-- Dark variant of the primary branding color. By default, this is the color applied to
+             the status bar (via statusBarColor) and navigation bar (via navigationBarColor). -->
+        <attr name="colorPrimaryDark" format="color"/>
+
+        <!-- Bright complement to the primary branding color. By default, this is the color applied
+             to framework controls (via colorControlActivated). -->
+        <attr name="colorAccent" format="color"/>
+
+        <!-- The color applied to framework controls in their normal state. -->
+        <attr name="colorControlNormal" format="color"/>
+
+        <!-- The color applied to framework controls in their activated (ex. checked) state. -->
+        <attr name="colorControlActivated" format="color"/>
+
+        <!-- The color applied to framework control highlights (ex. ripples, list selectors). -->
+        <attr name="colorControlHighlight" format="color"/>
+
+        <!-- The color applied to framework control (ex. buttons). -->
+        <attr name="colorButtonNormal" format="color"/>
+    </declare-styleable>
+
+</resources>

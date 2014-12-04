@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ *************************************************************** ~
+  ~ * This file is subject to the terms and conditions defined in * ~
+  ~ * file 'LICENSE', which is part of this source code package.  * ~
+  ~ *************************************************************** ~
+  -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false"
+          android:alpha="@dimen/disabled_alpha_material_dark"
+          android:color="@color/abc_bright_foreground_material_dark"/>
+    <item android:color="@color/abc_bright_foreground_material_dark"/>
+</selector>

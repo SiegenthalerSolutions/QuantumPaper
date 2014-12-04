@@ -18,17 +18,15 @@ package me.siegenthaler.quantum_paper.interceptor;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
 import me.siegenthaler.quantum_paper.QuantumResources;
 
 /**
  * Default {@link me.siegenthaler.quantum_paper.QuantumResources.ViewInterceptor}
- * for {@link android.widget.Button}.
+ * for com.android.internal.widget.ActionBarContextView.
  */
-public class ButtonInterceptor implements QuantumResources.ViewInterceptor {
+public class ActionInterceptor implements QuantumResources.ViewInterceptor {
     /**
      * Default attributes for tinting.
      */
@@ -39,7 +37,7 @@ public class ButtonInterceptor implements QuantumResources.ViewInterceptor {
     /**
      * Default style of the filter.
      */
-    private static final int DEFAULT_BUTTON_STYLE = android.R.attr.buttonStyle;
+    private static final int DEFAULT_ACTION_MODE_STYLE = android.R.attr.actionModeStyle;
 
     /**
      * {@inheritDoc}
@@ -47,8 +45,8 @@ public class ButtonInterceptor implements QuantumResources.ViewInterceptor {
     @Override
     public View getView(QuantumResources resources, String name, Context context, AttributeSet attributes) {
         switch (name.toUpperCase()) {
-            case "BUTTON":
-                return getButton(resources, context, attributes);
+            case "COM.ANDROID.INTERNAL.WIDGET.ACTIONBARCONTEXTVIEW":
+                return getContextView(resources, context, attributes);
 
         }
         return null;
@@ -57,26 +55,21 @@ public class ButtonInterceptor implements QuantumResources.ViewInterceptor {
     /**
      * (non-doc)
      */
-    private View getButton(QuantumResources resources, Context context, AttributeSet attributes) {
-        final Button view
-                = new Button(context, attributes, DEFAULT_BUTTON_STYLE);
-        return setViewBackground(resources, context, attributes, view, DEFAULT_BUTTON_STYLE);
-    }
-
-    /**
-     * (non-doc)
-     */
-    private View setViewBackground(QuantumResources resources, Context context, AttributeSet attributes,
-                                   View view, int defStyle) {
-        final TypedArray array
-                = context.obtainStyledAttributes(attributes, TINT_ATTRS, defStyle, 0);
+    private View getContextView(QuantumResources resources, Context context, AttributeSet attributes) {
+        View instance = null;
         try {
-            view.setBackground(
-                    resources.getDrawable(array.getResourceId(0, 0)));
-        } catch (Exception ignored) {
-        } finally {
+            instance = (View) Class.forName("com.android.internal.widget.ActionBarContextView")
+                    .getConstructor(Context.class, AttributeSet.class, int.class)
+                    .newInstance(context, attributes, DEFAULT_ACTION_MODE_STYLE);
+            final TypedArray array
+                    = context.obtainStyledAttributes(attributes, TINT_ATTRS, DEFAULT_ACTION_MODE_STYLE, 0);
+
+            instance.setBackground(resources.getDrawable(array.getResourceId(0, 0)));
+
             array.recycle();
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
-        return view;
+        return instance;
     }
 }

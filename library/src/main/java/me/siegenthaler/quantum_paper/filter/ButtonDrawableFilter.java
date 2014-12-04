@@ -23,8 +23,7 @@ import me.siegenthaler.quantum_paper.R;
 
 /**
  * Default {@link me.siegenthaler.quantum_paper.QuantumResources.DrawableFilter}
- * for {@link android.widget.Button}
- * and {@link android.widget.AutoCompleteTextView}.
+ * for {@link android.widget.Button}.
  */
 public class ButtonDrawableFilter implements QuantumResources.DrawableFilter {
     /**

@@ -8,4 +8,4 @@ devices with custom tinting.
 
 Screenshot
 ==========
-->![Simple](/screenshot/Simple.png)<-
+![Simple](/screenshot/Simple.png)

@@ -36,6 +36,12 @@ public class TextFieldDrawableFilter implements QuantumResources.DrawableFilter 
         if (resId == R.drawable.abc_edit_text_material ||
                 resId == R.drawable.abc_textfield_search_material) {
             return new QuantumDrawable(drawable, resources.getDefaultColorStateList(), QuantumTint.DEFAULT);
+        } else if (resId == R.drawable.abc_textfield_search_default_mtrl_alpha ||
+                resId == R.drawable.abc_textfield_default_mtrl_alpha) {
+            return resources.getThemeDrawable(drawable, new QuantumTint(R.attr.colorControlNormal));
+        } else if (resId == R.drawable.abc_textfield_search_activated_mtrl_alpha ||
+                resId == R.drawable.abc_textfield_activated_mtrl_alpha) {
+            return resources.getThemeDrawable(drawable, new QuantumTint(R.attr.colorControlActivated));
         }
         return null;
     }

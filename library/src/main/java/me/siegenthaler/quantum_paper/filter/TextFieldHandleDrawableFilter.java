@@ -24,7 +24,7 @@ import me.siegenthaler.quantum_paper.R;
 /**
  * Default {@link me.siegenthaler.quantum_paper.QuantumResources.BitmapFilter}
  * for {@link android.widget.EditText}
- * and {@link android.widget.AutoCompleteTextView}.
+ * and {@link android.widget.AutoCompleteTextView} handlers.
  */
 public class TextFieldHandleDrawableFilter implements QuantumResources.BitmapFilter {
     /**

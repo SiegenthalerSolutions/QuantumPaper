@@ -26,7 +26,6 @@ import me.siegenthaler.quantum_paper.QuantumResources;
 
 /**
  * Default {@link me.siegenthaler.quantum_paper.QuantumResources.ViewInterceptor}
- * for {@link android.widget.TextView}
  * for {@link android.widget.EditText}
  * and {@link android.widget.AutoCompleteTextView}.
  */

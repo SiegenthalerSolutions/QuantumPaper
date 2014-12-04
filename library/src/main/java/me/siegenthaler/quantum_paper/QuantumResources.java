@@ -39,6 +39,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.siegenthaler.quantum_paper.filter.ActionDrawableFilter;
+import me.siegenthaler.quantum_paper.interceptor.ActionInterceptor;
 import me.siegenthaler.quantum_paper.interceptor.ButtonInterceptor;
 import me.siegenthaler.quantum_paper.filter.TextFieldHandleDrawableFilter;
 import me.siegenthaler.quantum_paper.interceptor.TextFieldInterceptor;
@@ -93,9 +95,11 @@ public final class QuantumResources extends Resources {
 
         addBitmapDrawableFilter(new TextFieldHandleDrawableFilter());
 
+        addViewFilter(new ActionInterceptor());
         addViewFilter(new TextFieldInterceptor());
         addViewFilter(new ButtonInterceptor());
 
+        addDrawableFilter(new ActionDrawableFilter());
         addDrawableFilter(new TextFieldDrawableFilter());
         addDrawableFilter(new ButtonDrawableFilter());
     }

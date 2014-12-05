@@ -181,7 +181,7 @@ public final class QuantumResources extends Resources {
     public Drawable getDrawableFromTheme(Drawable drawable, int resId) {
         final Filter filter = getFilter(resId);
         if (filter != null) {
-            drawable = filter.getDrawable(this, drawable);
+            drawable = filter.getDrawable(this, drawable, resId);
         }
         return drawable;
     }
@@ -225,7 +225,7 @@ public final class QuantumResources extends Resources {
     public Bitmap getBitmapFromTheme(Bitmap bitmap, int resId) {
         final Filter filter = getFilter(resId);
         if (bitmap != null && filter != null) {
-            return filter.getBitmap(this, bitmap);
+            return filter.getBitmap(this, bitmap, resId);
         }
         return bitmap;
     }
@@ -426,9 +426,9 @@ public final class QuantumResources extends Resources {
      * Define an interface for intercepting drawables and bitmaps.
      */
     public interface Filter {
-        public Drawable getDrawable(QuantumResources manager, Drawable drawable);
+        public Drawable getDrawable(QuantumResources manager, Drawable drawable, int resId);
 
-        public Bitmap getBitmap(QuantumResources manager, Bitmap bitmap);
+        public Bitmap getBitmap(QuantumResources manager, Bitmap bitmap, int resId);
     }
 
     /**

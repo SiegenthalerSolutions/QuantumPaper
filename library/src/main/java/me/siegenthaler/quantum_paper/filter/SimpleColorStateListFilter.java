@@ -43,7 +43,7 @@ public class SimpleColorStateListFilter implements QuantumResources.Filter {
      * {@inheritDoc}
      */
     @Override
-    public Drawable getDrawable(QuantumResources manager, Drawable drawable) {
+    public Drawable getDrawable(QuantumResources manager, Drawable drawable, int resId) {
         return new FilteredColorStateDrawable(drawable, mStateList, PorterDuff.Mode.SRC_IN);
     }
 
@@ -51,7 +51,7 @@ public class SimpleColorStateListFilter implements QuantumResources.Filter {
      * {@inheritDoc}
      */
     @Override
-    public Bitmap getBitmap(QuantumResources manager, Bitmap bitmap) {
+    public Bitmap getBitmap(QuantumResources manager, Bitmap bitmap, int resId) {
         return null;    // Cannot apply to bitmap.
     }
 }

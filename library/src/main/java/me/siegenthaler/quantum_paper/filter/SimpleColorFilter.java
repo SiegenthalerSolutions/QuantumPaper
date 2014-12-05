@@ -56,7 +56,7 @@ public class SimpleColorFilter implements QuantumResources.Filter {
      * {@inheritDoc}
      */
     @Override
-    public Drawable getDrawable(QuantumResources manager, Drawable drawable) {
+    public Drawable getDrawable(QuantumResources manager, Drawable drawable, int resId) {
         return manager.applyColor(drawable, mAttribute, mAlpha, mMode);
     }
 
@@ -64,7 +64,7 @@ public class SimpleColorFilter implements QuantumResources.Filter {
      * {@inheritDoc}
      */
     @Override
-    public Bitmap getBitmap(QuantumResources manager, Bitmap bitmap) {
+    public Bitmap getBitmap(QuantumResources manager, Bitmap bitmap, int resId) {
         return manager.applyColor(bitmap, manager.getThemeAttrColor(mAttribute));
     }
 }

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.siegenthaler.quantum_paper.widget;
+package me.siegenthaler.quantum_paper;
 
 import android.app.Activity;
 import android.content.Context;
@@ -21,13 +21,12 @@ import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.view.View;
 
-import me.siegenthaler.quantum_paper.QuantumResources;
 import me.siegenthaler.quantum_paper.theme.material.ThemeMaterial;
 
 /**
  * Base {@link Activity} for the Quantum Paper framework.
  */
-public class QuantumBaseActivity extends Activity {
+public class QuantumActivity extends Activity {
     private QuantumResources mResources = null;
 
     /**

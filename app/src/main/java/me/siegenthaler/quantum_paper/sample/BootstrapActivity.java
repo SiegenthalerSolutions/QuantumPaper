@@ -17,12 +17,12 @@ package me.siegenthaler.quantum_paper.sample;
 
 import android.os.Bundle;
 
-import me.siegenthaler.quantum_paper.widget.QuantumBaseActivity;
+import me.siegenthaler.quantum_paper.QuantumActivity;
 
 /**
  * Bootstrap activity for the sample application.
  */
-public class BootstrapActivity extends QuantumBaseActivity {
+public class BootstrapActivity extends QuantumActivity {
 
     /**
      * {@inheritDoc}

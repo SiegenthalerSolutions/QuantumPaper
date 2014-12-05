@@ -17,7 +17,10 @@ package me.siegenthaler.quantum_paper.theme.material;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.graphics.Bitmap;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
@@ -37,13 +40,13 @@ public final class ThemeMaterial {
     /**
      * A collection of default filters.
      */
-    public final static String FILTER_COLOR_CONTROL_NORMAL = "ColorControlNormal";
-    public final static String FILTER_COLOR_CONTROL_ACTIVATED = "ColorControlActivated";
-    public final static String FILTER_COLOR_CONTROL_HIGHLIGHT = "ColorControlHighlight";
-    public final static String FILTER_COLOR_BUTTON_NORMAL = "ColorButtonNormal";
-    public final static String FILTER_COLOR_BACKGROUND = "ColorBackground";
-    public final static String FILTER_DEFAULT_COLOR_STATE_LIST = "DefaultColorStateList";
-    public final static String FILTER_ACTION_BAR_BACKGROUND = "ActionBarBackground";
+    public final static String FILTER_COLOR_CONTROL_NORMAL = "NORMAL";
+    public final static String FILTER_COLOR_CONTROL_ACTIVATED = "ACTIVATED";
+    public final static String FILTER_COLOR_CONTROL_HIGHLIGHT = "HIGHLIGHT";
+    public final static String FILTER_COLOR_BUTTON_NORMAL = "BUTTON_NORMAL";
+    public final static String FILTER_COLOR_BACKGROUND = "BACKGROUD";
+    public final static String FILTER_DEFAULT_COLOR_STATE_LIST = "COLOR_STATE_LIST";
+    private final static String FILTER_ACTION_BAR = "ACTION_BAR";
 
     /**
      * Add default {@link me.siegenthaler.quantum_paper.QuantumResources.Filter}.
@@ -61,6 +64,7 @@ public final class ThemeMaterial {
                 new SimpleColorFilter(android.R.attr.colorBackground, -1, PorterDuff.Mode.MULTIPLY));
         manager.addFilter(FILTER_DEFAULT_COLOR_STATE_LIST,
                 new SimpleColorStateListFilter(getDefaultColorStateList(manager)));
+        manager.addFilter(FILTER_ACTION_BAR, new ActionBarCustomFilter());
     }
 
     /**
@@ -91,7 +95,9 @@ public final class ThemeMaterial {
                 R.drawable.abc_text_select_handle_left_mtrl_alpha,
                 R.drawable.abc_text_select_handle_right_mtrl_alpha,
                 R.drawable.abc_text_select_handle_middle_mtrl_alpha,
-                R.drawable.abc_text_cursor_mtrl_alpha);
+                R.drawable.abc_text_cursor_mtrl_alpha,
+                R.drawable.abc_cab_background_top_mtrl_alpha,
+                R.drawable.abc_cab_background_bottom_mtrl_alpha);
         manager.addResources(FILTER_COLOR_CONTROL_HIGHLIGHT,
                 R.drawable.abc_btn_default_material,
                 R.drawable.abc_btn_borderless_material);
@@ -100,6 +106,9 @@ public final class ThemeMaterial {
         manager.addResources(FILTER_DEFAULT_COLOR_STATE_LIST,
                 R.drawable.abc_edit_text_material,
                 R.drawable.abc_textfield_search_material);
+        manager.addResources(FILTER_ACTION_BAR,
+                R.drawable.abc_cab_background_top_material,
+                R.drawable.abc_cab_background_bottom_material);
     }
 
     /**
@@ -127,6 +136,19 @@ public final class ThemeMaterial {
             @Override
             protected View instance(Context context, AttributeSet attributes, int defStyle) {
                 return new Button(context, attributes, defStyle);
+            }
+        });
+        manager.addInterceptor("com.android.internal.widget.ActionBarContextView", new SimpleBackgroundInterceptor(
+                android.R.attr.actionModeStyle) {
+            @Override
+            protected View instance(Context context, AttributeSet attributes, int defStyle) {
+                try {
+                    return (View) Class.forName("com.android.internal.widget.ActionBarContextView")
+                            .getConstructor(Context.class, AttributeSet.class, int.class)
+                            .newInstance(context, attributes, defStyle);
+                } catch (Exception ignored) {
+                }
+                return null;
             }
         });
     }
@@ -175,5 +197,39 @@ public final class ThemeMaterial {
         states[i] = new int[0];
         colors[i] = colorControlNormal;
         return new ColorStateList(states, colors);
+    }
+
+    /**
+     * Define a custom filter for the ActionBar (TODO: Remove this and fix Drawable mutation).
+     */
+    private static class ActionBarCustomFilter implements QuantumResources.Filter {
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public Drawable getDrawable(QuantumResources manager, Drawable drawable, int resId) {
+            final LayerDrawable layer = (LayerDrawable) drawable;
+
+            if (resId == R.drawable.abc_cab_background_top_material) {
+                layer.invalidateDrawable(manager.getDrawableFromTheme(
+                        layer.getDrawable(0), R.drawable.abc_cab_background_internal_bg));
+                layer.invalidateDrawable(manager.getDrawableFromTheme(
+                        layer.getDrawable(1), R.drawable.abc_cab_background_top_mtrl_alpha));
+            } else {
+                layer.invalidateDrawable(manager.getDrawableFromTheme(
+                        layer.getDrawable(1), R.drawable.abc_cab_background_internal_bg));
+                layer.invalidateDrawable(manager.getDrawableFromTheme(
+                        layer.getDrawable(0), R.drawable.abc_cab_background_bottom_mtrl_alpha));
+            }
+            return drawable;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public Bitmap getBitmap(QuantumResources manager, Bitmap bitmap, int resId) {
+            return null;
+        }
     }
 }

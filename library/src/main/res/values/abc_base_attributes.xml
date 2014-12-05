@@ -21,6 +21,7 @@
         <!-- =================== -->
         <eat-comment/>
 
+        <attr name="borderlessButtonStyle" format="reference"/>
         <attr name="checkedTextViewStyle" format="reference"/>
 
         <!-- ============= -->
@@ -55,6 +56,18 @@
         <eat-comment/>
 
         <attr name="textAppearanceListItemSecondary" format="reference"/>
+
+
+        <!-- ============= -->
+        <!-- Window styles -->
+        <!-- ============= -->
+        <eat-comment />
+
+        <attr name="windowFixedWidthMajor" format="dimension|fraction" />
+        <attr name="windowFixedHeightMinor" format="dimension|fraction" />
+        <attr name="windowFixedWidthMinor" format="dimension|fraction" />
+        <attr name="windowFixedHeightMajor" format="dimension|fraction" />
+
     </declare-styleable>
 
 </resources>

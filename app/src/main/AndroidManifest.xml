@@ -17,7 +17,7 @@
         android:allowBackup="true"
         android:label="@string/app_name"
         android:icon="@drawable/ic_launcher"
-        android:theme="@style/Platform.Quantum">
+        android:theme="@style/Platform.Quantum.Light.DarkActionBar">
 
         <!--
           ~ ***********************************************************

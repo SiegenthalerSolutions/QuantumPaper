@@ -262,4 +262,22 @@
 
     <style name="Widget.Quantum.PopupMenu"
            parent="Base.Widget.Quantum.PopupMenu"/>
+
+    <style name="Widget.Quantum.ButtonBar.AlertDialog"
+           parent="Base.Widget.Quantum.ButtonBar.AlertDialog"/>
+
+    <style name="Widget.Quantum.Light.SegmentedButton"
+           parent="Base.Widget.Quantum.Light.SegmentedButton"/>
+
+    <style name="Widget.Quantum.Light.RatingBar.Indicator"
+           parent="Base.Widget.Quantum.Light.RatingBar.Indicator"/>
+
+    <style name="Widget.Quantum.Light.RatingBar.Small"
+           parent="Base.Widget.Quantum.Light.RatingBar.Small"/>
+
+    <style name="DialogWindowTitle.Quantum"
+           parent="Base.DialogWindowTitle.Quantum"/>
+
+    <style name="AlertDialog.Quantum"
+           parent="Base.AlertDialog.Quantum"/>
 </resources>

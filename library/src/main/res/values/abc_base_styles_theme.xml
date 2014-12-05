@@ -505,6 +505,11 @@
         <item name="android:background">?attr/colorPrimary</item>
         <item name="android:backgroundStacked">?attr/colorPrimary</item>
         <item name="android:backgroundSplit">?attr/colorPrimary</item>
+        <item name="android:titleTextStyle">@style/TextAppearance.Quantum.Title</item>
+    </style>
+
+    <style name="Base.Widget.Quantum.ActionBar.Solid.Inverse">
+        <item name="android:titleTextStyle">@style/TextAppearance.Quantum.Title.Inverse</item>
     </style>
 
     <style name="Base.Widget.Quantum.ActionMode" parent="">
@@ -578,5 +583,34 @@
         <item name="android:indeterminateDrawable">@drawable/ratingbar_small_holo_light</item>-->
         <item name="android:minHeight">16dp</item>
         <item name="android:maxHeight">16dp</item>
+    </style>
+
+    <style name="Base.AlertDialog.Quantum" parent="">
+        <item name="android:fullDark">@null</item>
+        <item name="android:topDark">@null</item>
+        <item name="android:centerDark">@null</item>
+        <item name="android:bottomDark">@null</item>
+        <item name="android:fullBright">@null</item>
+        <item name="android:topBright">@null</item>
+        <item name="android:centerBright">@null</item>
+        <item name="android:bottomBright">@null</item>
+        <item name="android:bottomMedium">@null</item>
+        <item name="android:centerMedium">@null</item>
+        <!-- (TODO)
+        <item name="android:layout">@layout/alert_dialog_material</item>
+
+        <item name="android:listLayout">@layout/select_dialog_material</item>
+        <item name="android:progressLayout">@layout/progress_dialog_material</item>
+        <item name="android:horizontalProgressLayout">@layout/alert_dialog_progress_material</item>
+        <item name="android:listItemLayout">@layout/select_dialog_item_material</item>
+        <item name="android:multiChoiceItemLayout">@layout/select_dialog_multichoice_material</item>
+        <item name="android:singleChoiceItemLayout">@layout/select_dialog_singlechoice_material</item>-->
+    </style>
+
+
+    <style name="Base.DialogWindowTitle.Quantum" parent="">
+        <item name="android:maxLines">1</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:textAppearance">@style/Base.TextAppearance.Quantum.DialogWindowTitle</item>
     </style>
 </resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ *************************************************************** ~
+  ~ * This file is subject to the terms and conditions defined in * ~
+  ~ * file 'LICENSE', which is part of this source code package.  * ~
+  ~ *************************************************************** ~
+  -->
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+       android:insetTop="16dp"
+       android:insetBottom="16dp"
+       android:insetLeft="16dp"
+       android:insetRight="16dp">
+
+    <shape android:shape="rectangle">
+        <corners android:radius="2dp"/>
+        <solid android:color="@android:color/white"/>
+    </shape>
+</inset>

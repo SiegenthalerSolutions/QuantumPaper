@@ -208,4 +208,23 @@
     <dimen name="abc_alert_dialog_padding_top_material">
         18dp
     </dimen>
+
+    <item type="dimen" name="abc_dialog_min_width_major">
+        65%
+    </item>
+    <item type="dimen" name="abc_dialog_fixed_width_major">
+        320dp
+    </item>
+    <item type="dimen" name="abc_dialog_fixed_width_minor">
+        320dp
+    </item>
+    <item type="dimen" name="abc_dialog_fixed_height_major">
+        80%
+    </item>
+    <item type="dimen" name="abc_dialog_fixed_height_minor">
+        100%
+    </item>
+    <item type="dimen" name="abc_dialog_min_width_minor">
+        95%
+    </item>
 </resources>

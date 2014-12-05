@@ -121,7 +121,8 @@ public final class ThemeMaterial {
         manager.addResources(FILTER_COLOR_FOREGROUND,
                 R.drawable.abc_list_divider_mtrl_alpha);
         manager.addResources(FILTER_COLOR_BACKGROUND,
-                R.drawable.abc_cab_background_internal_bg);
+                R.drawable.abc_cab_background_internal_bg,
+                R.drawable.abc_dialog_background_material);
         manager.addResources(FILTER_DEFAULT_CONTROL_ACTIVATED_STATE_LIST,
                 R.drawable.abc_fastscroll_thumb_material);
         manager.addResources(FILTER_DEFAULT_COLOR_STATE_LIST,

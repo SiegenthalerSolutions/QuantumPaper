@@ -15,25 +15,16 @@
  */
 package me.siegenthaler.quantum_paper.drawable;
 
-import android.annotation.TargetApi;
 import android.content.res.ColorStateList;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
-import android.graphics.Rect;
-import android.graphics.Region;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 
 /**
- * Base wrapper that delegates all calls to another {@link android.graphics.drawable.Drawable}.
- * The wrapped {@link android.graphics.drawable.Drawable} <em>must</em> be fully released from
- * any {@link android.view.View} before wrapping, otherwise internal
- * {@link android.graphics.drawable.Drawable.Callback} may be dropped.
+ * Define a {@link me.siegenthaler.quantum_paper.drawable.FilteredDrawable} that contains
+ * a color state list.
  */
-public final class FilteredColorStateDrawable extends Drawable implements Drawable.Callback {
-    private final Drawable mDrawable;
+public class FilteredColorStateDrawable extends FilteredDrawable {
     private final ColorStateList mTintStateList;
     private final PorterDuff.Mode mTintMode;
     private int mCurrentColor;
@@ -46,83 +37,9 @@ public final class FilteredColorStateDrawable extends Drawable implements Drawab
      * @param tintMode      the tint mode of the drawable.
      */
     public FilteredColorStateDrawable(Drawable drawable, ColorStateList tintStateList, PorterDuff.Mode tintMode) {
-        this.mDrawable = drawable;
-        this.mDrawable.setCallback(this);
+        super(drawable);
         this.mTintStateList = tintStateList;
         this.mTintMode = tintMode;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void draw(Canvas canvas) {
-        mDrawable.draw(canvas);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setBounds(int left, int top, int right, int bottom) {
-        super.setBounds(left, top, right, bottom);
-        mDrawable.setBounds(left, top, right, bottom);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setChangingConfigurations(int configs) {
-        mDrawable.setChangingConfigurations(configs);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public int getChangingConfigurations() {
-        return mDrawable.getChangingConfigurations();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setDither(boolean dither) {
-        mDrawable.setDither(dither);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setFilterBitmap(boolean filter) {
-        mDrawable.setFilterBitmap(filter);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setAlpha(int alpha) {
-        mDrawable.setAlpha(alpha);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setColorFilter(ColorFilter cf) {
-        mDrawable.setColorFilter(cf);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void clearColorFilter() {
-        mDrawable.clearColorFilter();
     }
 
     /**
@@ -143,197 +60,6 @@ public final class FilteredColorStateDrawable extends Drawable implements Drawab
             handled = updateTint(stateSet);
         }
         return handled;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public int[] getState() {
-        return mDrawable.getState();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public ConstantState getConstantState() {
-        return mDrawable.getConstantState();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void jumpToCurrentState() {
-        mDrawable.jumpToCurrentState();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Drawable getCurrent() {
-        return mDrawable.getCurrent();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean setVisible(boolean visible, boolean restart) {
-        return super.setVisible(visible, restart) || mDrawable.setVisible(visible, restart);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public int getOpacity() {
-        return mDrawable.getOpacity();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Region getTransparentRegion() {
-        return mDrawable.getTransparentRegion();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public int getIntrinsicWidth() {
-        return mDrawable.getIntrinsicWidth();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public int getIntrinsicHeight() {
-        return mDrawable.getIntrinsicHeight();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public int getMinimumWidth() {
-        return mDrawable.getMinimumWidth();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public int getMinimumHeight() {
-        return mDrawable.getMinimumHeight();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean getPadding(Rect padding) {
-        return mDrawable.getPadding(padding);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void invalidateDrawable(Drawable who) {
-        invalidateSelf();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void scheduleDrawable(Drawable who, Runnable what, long when) {
-        scheduleSelf(what, when);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void unscheduleDrawable(Drawable who, Runnable what) {
-        unscheduleSelf(what);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected boolean onLevelChange(int level) {
-        return mDrawable.setLevel(level);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @TargetApi(Build.VERSION_CODES.KITKAT)
-    @Override
-    public void setAutoMirrored(boolean mirrored) {
-        mDrawable.setAutoMirrored(mirrored);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @TargetApi(Build.VERSION_CODES.KITKAT)
-    @Override
-    public boolean isAutoMirrored() {
-        return mDrawable.isAutoMirrored();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    @Override
-    public void setTint(int tint) {
-        mDrawable.setTint(tint);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    @Override
-    public void setTintList(ColorStateList tint) {
-        mDrawable.setTintList(tint);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    @Override
-    public void setTintMode(PorterDuff.Mode tintMode) {
-        mDrawable.setTintMode(tintMode);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    @Override
-    public void setHotspot(float x, float y) {
-        mDrawable.setHotspot(x, y);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    @Override
-    public void setHotspotBounds(int left, int top, int right, int bottom) {
-        mDrawable.setHotspotBounds(left, top, right, bottom);
     }
 
     /**

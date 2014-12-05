@@ -26,6 +26,7 @@ import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import me.siegenthaler.quantum_paper.QuantumResources;
@@ -33,6 +34,7 @@ import me.siegenthaler.quantum_paper.R;
 import me.siegenthaler.quantum_paper.filter.SimpleColorFilter;
 import me.siegenthaler.quantum_paper.filter.SimpleColorStateListFilter;
 import me.siegenthaler.quantum_paper.interceptor.SimpleBackgroundInterceptor;
+import me.siegenthaler.quantum_paper.interceptor.SimpleImageInterceptor;
 
 /**
  * Helper methods for the Material theme.
@@ -138,6 +140,13 @@ public final class ThemeMaterial {
      * @param manager a reference to the manager
      */
     public static void addDefaultInterceptors(QuantumResources manager) {
+
+        manager.addInterceptor("ImageView", new SimpleImageInterceptor(0) {
+            @Override
+            protected ImageView instance(Context context, AttributeSet attributes, int defStyle) {
+                return new ImageView(context, attributes, defStyle);
+            }
+        });
         manager.addInterceptor("TextView", new SimpleBackgroundInterceptor(
                 android.R.attr.textViewStyle) {
             @Override

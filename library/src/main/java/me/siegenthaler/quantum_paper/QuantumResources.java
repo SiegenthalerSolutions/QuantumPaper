@@ -39,6 +39,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import me.siegenthaler.quantum_paper.drawable.FilteredDrawable;
+
 /**
  * Define the manager for the <b>Quantum Paper</b> framework.
  */
@@ -164,7 +166,6 @@ public final class QuantumResources extends Resources {
      * @return a new reference to the view created, or null if wasn't intercepted.
      */
     public View getWidget(String name, Context context, AttributeSet attrs) {
-        Log.d("UTone", "Trying to get Widget: " + name);
         final Interceptor interceptor = mInterceptorMapping.get(name.hashCode(), null);
         if (interceptor != null) {
             return interceptor.getWidget(this, context, attrs);
@@ -183,7 +184,6 @@ public final class QuantumResources extends Resources {
     public Drawable getDrawableFromTheme(Drawable drawable, int resId) {
         final Filter filter = getFilter(resId);
         if (filter != null) {
-            Log.d("UTone", "Apply color to: " + getResourceName(resId));
             drawable = filter.getDrawable(this, drawable, resId);
         }
         return drawable;

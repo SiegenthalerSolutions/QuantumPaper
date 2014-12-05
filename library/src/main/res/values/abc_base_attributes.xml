@@ -7,4 +7,54 @@
   -->
 <resources>
 
+    <declare-styleable name="Theme">
+        <!-- =================== -->
+        <!-- Other widget styles -->
+        <!-- =================== -->
+        <eat-comment/>
+
+        <attr name="selectableItemBackgroundBorderless" format="reference"/>
+        <attr name="dropdownListPreferredItemHeight" format="dimension"/>
+
+        <!-- =================== -->
+        <!-- Widget styles       -->
+        <!-- =================== -->
+        <eat-comment/>
+
+        <attr name="checkedTextViewStyle" format="reference"/>
+
+        <!-- ============= -->
+        <!-- Color palette -->
+        <!-- ============= -->
+        <eat-comment/>
+
+        <attr name="colorPrimary" format="color"/>
+        <attr name="colorPrimaryDark" format="color"/>
+        <attr name="colorAccent" format="color"/>
+        <attr name="colorControlNormal" format="color"/>
+        <attr name="colorControlActivated" format="color"/>
+        <attr name="colorControlHighlight" format="color"/>
+        <attr name="colorButtonNormal" format="color"/>
+
+        <!-- =================== -->
+        <!-- Action bar styles   -->
+        <!-- =================== -->
+        <eat-comment/>
+
+        <attr name="actionOverflowMenuStyle" format="reference"/>
+        <attr name="actionBarPopupTheme" format="reference"/>
+        <attr name="actionBarTheme" format="reference"/>
+        <attr name="actionModePopupWindowStyle" format="reference"/>
+        <attr name="actionModeShareDrawable" format="reference"/>
+        <attr name="actionModeFindDrawable" format="reference"/>
+        <attr name="actionModeWebSearchDrawable" format="reference"/>
+
+        <!-- =========== -->
+        <!-- List styles -->
+        <!-- =========== -->
+        <eat-comment/>
+
+        <attr name="textAppearanceListItemSecondary" format="reference"/>
+    </declare-styleable>
+
 </resources>

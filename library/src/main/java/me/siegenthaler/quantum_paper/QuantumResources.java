@@ -27,6 +27,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.LruCache;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
@@ -163,6 +164,7 @@ public final class QuantumResources extends Resources {
      * @return a new reference to the view created, or null if wasn't intercepted.
      */
     public View getWidget(String name, Context context, AttributeSet attrs) {
+        Log.d("UTone", "Trying to get Widget: " + name);
         final Interceptor interceptor = mInterceptorMapping.get(name.hashCode(), null);
         if (interceptor != null) {
             return interceptor.getWidget(this, context, attrs);
@@ -181,6 +183,7 @@ public final class QuantumResources extends Resources {
     public Drawable getDrawableFromTheme(Drawable drawable, int resId) {
         final Filter filter = getFilter(resId);
         if (filter != null) {
+            Log.d("UTone", "Apply color to: " + getResourceName(resId));
             drawable = filter.getDrawable(this, drawable, resId);
         }
         return drawable;

@@ -7,12 +7,14 @@
   -->
 <resources>
 
-
     <style name="TextAppearance.Quantum.Widget.PopupMenu.Large"
            parent="Base.TextAppearance.Quantum.Widget.PopupMenu.Large"/>
 
     <style name="TextAppearance.Quantum.Widget.PopupMenu.Small"
            parent="Base.TextAppearance.Quantum.Widget.PopupMenu.Small"/>
+
+    <style name="TextAppearance.Quantum.Widget.DropDownHint"
+           parent="Base.TextAppearance.Quantum.Widget.DropDownHint"/>
 
     <!-- Text styles -->
     <style name="TextAppearance.Quantum"
@@ -84,5 +86,180 @@
     <style name="TextAppearance.Quantum.Widget.Switch"
            parent="Base.TextAppearance.Quantum.Widget.Switch"/>
 
-    <!-- TODO: More, @see AppCompat -->
+    <style name="TextAppearance.Quantum.Widget.ActionBar.Menu"
+           parent="Base.TextAppearance.Quantum.Widget.ActionBar.Menu"/>
+
+    <style name="Widget.Quantum.TextView.ListSeparator"
+           parent="RTL.Widget.Quantum.TextView.ListSeparator"/>
+
+    <style name="Widget.Quantum.Button"
+           parent="Base.Widget.Quantum.Button"/>
+
+    <style name="Widget.Quantum.Button.Small"
+           parent="Base.Widget.Quantum.Button.Small"/>
+
+    <style name="Widget.Quantum.Button.Borderless"
+           parent="Base.Widget.Quantum.Button.Borderless"/>
+
+    <style name="Widget.Quantum.Spinner.DropDown.ActionBar"
+           parent="Base.Widget.Quantum.Spinner.DropDown.ActionBar"/>
+
+    <style name="Widget.Quantum.ActionButton"
+           parent="RTL.Widget.Quantum.ActionButton"/>
+
+    <style name="Widget.Quantum.ActionButton.Overflow"
+           parent="RTL.Widget.Quantum.ActionButton.Overflow"/>
+
+    <style name="Widget.Quantum.PopupMenu.Overflow"
+           parent="Base.Widget.Quantum.PopupMenu.Overflow"/>
+
+    <style name="Widget.Quantum.ActionBar.TabView"
+           parent="RTL.Widget.Quantum.ActionBar.TabView"/>
+
+    <style name="Widget.Quantum.ActionBar.TabBar"
+           parent="Base.Widget.Quantum.ActionBar.TabBar"/>
+
+    <style name="Widget.Quantum.ActionBar.TabText"
+           parent="Base.Widget.Quantum.ActionBar.TabText"/>
+
+    <style name="Widget.Quantum.ActionMode"
+           parent="Base.Widget.Quantum.ActionMode"/>
+
+    <style name="Widget.Quantum.ActionButton.CloseMode"
+           parent="Base.Widget.Quantum.ActionButton.CloseMode"/>
+
+    <style name="Widget.Quantum.ActionBar.Solid"
+           parent="Base.Widget.Quantum.ActionBar.Solid"/>
+
+    <style name="Widget.Quantum.PopupWindow.ActionMode"
+           parent="Base.Widget.Quantum.PopupWindow.ActionMode"/>
+
+    <style name="Widget.Quantum.MediaRouteButton"
+           parent="Base.Widget.Quantum.MediaRouteButton"/>
+
+    <style name="Widget.Quantum.ButtonBar"
+           parent="Base.Widget.Quantum.ButtonBar"/>
+
+    <style name="Widget.Quantum.Button.ButtonBar.AlertDialog"
+           parent="Base.Widget.Quantum.Button.ButtonBar.AlertDialog"/>
+
+    <style name="Widget.Quantum.SegmentedButton"
+           parent="Base.Widget.Quantum.SegmentedButton"/>
+
+    <style name="Widget.Quantum.AbsListView"
+           parent="Base.Widget.Quantum.AbsListView"/>
+
+    <style name="Widget.Quantum.AutoCompleteTextView"
+           parent="Base.Widget.Quantum.AutoCompleteTextView"/>
+
+    <style name="Widget.Quantum.CompoundButton.CheckBox"
+           parent="Base.Widget.Quantum.CompoundButton.CheckBox"/>
+
+    <style name="Widget.Quantum.CheckedTextView"
+           parent="RTL.Widget.Quantum.CheckedTextView"/>
+
+    <style name="Widget.Quantum.ListView.DropDown"
+           parent="Base.Widget.Quantum.ListView.DropDown"/>
+
+    <style name="Widget.Quantum.EditText"
+           parent="Base.Widget.Quantum.EditText"/>
+
+    <style name="Widget.Quantum.ExpandableListView"
+           parent="Base.Widget.Quantum.ExpandableListView"/>
+
+    <style name="Widget.Quantum.ExpandableListView.White"
+           parent="Base.Widget.Quantum.ExpandableListView.White"/>
+
+    <style name="Widget.Quantum.Gallery"
+           parent="Base.Widget.Quantum.Gallery"/>
+
+    <style name="Widget.Quantum.GridView"
+           parent="Base.Widget.Quantum.GridView"/>
+
+    <style name="Widget.Quantum.ImageButton"
+           parent="Base.Widget.Quantum.ImageButton"/>
+
+    <style name="Widget.Quantum.ImageWell"
+           parent="Base.Widget.Quantum.ImageWell"/>
+
+    <style name="Widget.Quantum.ListView"
+           parent="Base.Widget.Quantum.ListView"/>
+
+    <style name="Widget.Quantum.ListView.White"
+           parent="Base.Widget.Quantum.ListView.White"/>
+
+    <style name="Widget.Quantum.PopupWindow"
+           parent="Base.Widget.Quantum.PopupWindow"/>
+
+    <style name="Widget.Quantum.ProgressBar"
+           parent="Base.Widget.Quantum.ProgressBar"/>
+
+    <style name="Widget.Quantum.ProgressBar.Horizontal"
+           parent="Base.Widget.Quantum.ProgressBar.Horizontal"/>
+
+    <style name="Widget.Quantum.ProgressBar.Small"
+           parent="Base.Widget.Quantum.ProgressBar.Small"/>
+
+    <style name="Widget.Quantum.ProgressBar.Small.Title"
+           parent="Base.Widget.Quantum.ProgressBar.Small.Title"/>
+
+    <style name="Widget.Quantum.ProgressBar.Large"
+           parent="Base.Widget.Quantum.ProgressBar.Large"/>
+
+    <style name="Widget.Quantum.ProgressBar.Inverse"
+           parent="Base.Widget.Quantum.ProgressBar.Inverse"/>
+
+    <style name="Widget.Quantum.ScrollView"
+           parent="Base.Widget.Quantum.ScrollView"/>
+
+    <style name="Widget.Quantum.ProgressBar.Small.Inverse"
+           parent="Base.Widget.Quantum.ProgressBar.Small.Inverse"/>
+
+    <style name="Widget.Quantum.ProgressBar.Large.Inverse"
+           parent="Base.Widget.Quantum.ProgressBar.Large.Inverse"/>
+
+    <style name="Widget.Quantum.SeekBar"
+           parent="RTL.Widget.Quantum.SeekBar"/>
+
+    <style name="Widget.Quantum.RatingBar"
+           parent="Base.Widget.Quantum.RatingBar"/>
+
+    <style name="Widget.Quantum.RatingBar.Indicator"
+           parent="Base.Widget.Quantum.RatingBar.Indicator"/>
+
+    <style name="Widget.Quantum.RatingBar.Small"
+           parent="Base.Widget.Quantum.RatingBar.Small"/>
+
+    <style name="Widget.Quantum.CompoundButton.RadioButton"
+           parent="Base.Widget.Quantum.CompoundButton.RadioButton"/>
+
+    <style name="Widget.Quantum.HorizontalScrollView"
+           parent="Base.Widget.Quantum.HorizontalScrollView"/>
+
+    <style name="Widget.Quantum.Spinner.DropDown"
+           parent="Base.Widget.Quantum.Spinner.DropDown"/>
+
+    <style name="Widget.Quantum.CompoundButton.Star"
+           parent="Base.Widget.Quantum.CompoundButton.Star"/>
+
+    <style name="Widget.Quantum.TabWidget"
+           parent="Base.Widget.Quantum.TabWidget"/>
+
+    <style name="Widget.Quantum.TextView"
+           parent="Base.Widget.Quantum.TextView"/>
+
+    <style name="Widget.Quantum.DropDownItem"
+           parent="RTL.Widget.Quantum.DropDownItem"/>
+
+    <style name="Widget.Quantum.DropDownItem.Spinner"
+           parent="Base.Widget.Quantum.DropDownItem.Spinner"/>
+
+    <style name="Widget.Quantum.TextView.SpinnerItem"
+           parent="RTL.Widget.Quantum.TextView.SpinnerItem"/>
+
+    <style name="Widget.Quantum.ListPopupWindow"
+           parent="Base.Widget.Quantum.ListPopupWindow"/>
+
+    <style name="Widget.Quantum.PopupMenu"
+           parent="Base.Widget.Quantum.PopupMenu"/>
 </resources>

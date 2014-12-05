@@ -5,6 +5,5 @@
   ~ * file 'LICENSE', which is part of this source code package.  * ~
   ~ *************************************************************** ~
   -->
-<resources>
-    <!-- TODO: More, @see AppCompat -->
-</resources>
+<nine-patch xmlns:android="http://schemas.android.com/apk/res/android"
+            android:src="@drawable/abc_fastscroll_track_mtrl_alpha"/>

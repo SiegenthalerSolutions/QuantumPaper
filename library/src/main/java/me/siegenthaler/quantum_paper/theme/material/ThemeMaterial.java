@@ -26,6 +26,7 @@ import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import me.siegenthaler.quantum_paper.QuantumResources;
 import me.siegenthaler.quantum_paper.R;
@@ -43,9 +44,12 @@ public final class ThemeMaterial {
     public final static String FILTER_COLOR_CONTROL_NORMAL = "NORMAL";
     public final static String FILTER_COLOR_CONTROL_ACTIVATED = "ACTIVATED";
     public final static String FILTER_COLOR_CONTROL_HIGHLIGHT = "HIGHLIGHT";
+    public final static String FILTER_COLOR_FOREGROUND = "FOREGROUND";
     public final static String FILTER_COLOR_BUTTON_NORMAL = "BUTTON_NORMAL";
     public final static String FILTER_COLOR_BACKGROUND = "BACKGROUD";
     public final static String FILTER_DEFAULT_COLOR_STATE_LIST = "COLOR_STATE_LIST";
+    public final static String FILTER_DEFAULT_CONTROL_ACTIVATED_STATE_LIST = "CONTROL_ACTIVATED_STATE_LIST";
+    public final static String FILTER_DEFAULT_ACTIVATED_STATE_LIST = "ACTIVATED_STATE_LIST";
     private final static String FILTER_ACTION_BAR = "ACTION_BAR";
 
     /**
@@ -60,10 +64,16 @@ public final class ThemeMaterial {
                 new SimpleColorFilter(R.attr.colorControlActivated));
         manager.addFilter(FILTER_COLOR_CONTROL_HIGHLIGHT,
                 new SimpleColorFilter(R.attr.colorControlHighlight));
+        manager.addFilter(FILTER_COLOR_FOREGROUND,
+                new SimpleColorFilter(android.R.attr.colorForeground));
         manager.addFilter(FILTER_COLOR_BACKGROUND,
                 new SimpleColorFilter(android.R.attr.colorBackground, -1, PorterDuff.Mode.MULTIPLY));
         manager.addFilter(FILTER_DEFAULT_COLOR_STATE_LIST,
                 new SimpleColorStateListFilter(getDefaultColorStateList(manager)));
+        manager.addFilter(FILTER_DEFAULT_CONTROL_ACTIVATED_STATE_LIST,
+                new SimpleColorStateListFilter(getActivatedButtonStateList(manager)));
+        manager.addFilter(FILTER_DEFAULT_ACTIVATED_STATE_LIST,
+                new SimpleColorStateListFilter(getActivatedStateList(manager)));
         manager.addFilter(FILTER_ACTION_BAR, new ActionBarCustomFilter());
     }
 
@@ -88,7 +98,10 @@ public final class ThemeMaterial {
                 R.drawable.abc_ic_menu_selectall_mtrl_alpha,
                 R.drawable.abc_ic_menu_share_mtrl_alpha,
                 R.drawable.abc_ic_search_api_mtrl_alpha,
-                R.drawable.abc_ic_voice_search_api_mtrl_alpha);
+                R.drawable.abc_ic_voice_search_api_mtrl_alpha,
+                R.drawable.abc_scrollbar_handle_mtrl_alpha,
+                R.drawable.abc_fastscroll_track_mtrl_alpha,
+                R.drawable.abc_fastscroll_track_material);
         manager.addResources(FILTER_COLOR_CONTROL_ACTIVATED,
                 R.drawable.abc_textfield_search_activated_mtrl_alpha,
                 R.drawable.abc_textfield_activated_mtrl_alpha,
@@ -97,15 +110,23 @@ public final class ThemeMaterial {
                 R.drawable.abc_text_select_handle_middle_mtrl_alpha,
                 R.drawable.abc_text_cursor_mtrl_alpha,
                 R.drawable.abc_cab_background_top_mtrl_alpha,
-                R.drawable.abc_cab_background_bottom_mtrl_alpha);
+                R.drawable.abc_cab_background_bottom_mtrl_alpha,
+                R.drawable.abc_fastscroll_label_left_material,
+                R.drawable.abc_fastscroll_label_right_material);
         manager.addResources(FILTER_COLOR_CONTROL_HIGHLIGHT,
                 R.drawable.abc_btn_default_material,
                 R.drawable.abc_btn_borderless_material);
+        manager.addResources(FILTER_COLOR_FOREGROUND,
+                R.drawable.abc_list_divider_mtrl_alpha);
         manager.addResources(FILTER_COLOR_BACKGROUND,
                 R.drawable.abc_cab_background_internal_bg);
+        manager.addResources(FILTER_DEFAULT_CONTROL_ACTIVATED_STATE_LIST,
+                R.drawable.abc_fastscroll_thumb_material);
         manager.addResources(FILTER_DEFAULT_COLOR_STATE_LIST,
                 R.drawable.abc_edit_text_material,
                 R.drawable.abc_textfield_search_material);
+        manager.addResources(FILTER_DEFAULT_ACTIVATED_STATE_LIST,
+                R.drawable.abc_activated_background_material);
         manager.addResources(FILTER_ACTION_BAR,
                 R.drawable.abc_cab_background_top_material,
                 R.drawable.abc_cab_background_bottom_material);
@@ -117,6 +138,13 @@ public final class ThemeMaterial {
      * @param manager a reference to the manager
      */
     public static void addDefaultInterceptors(QuantumResources manager) {
+        manager.addInterceptor("TextView", new SimpleBackgroundInterceptor(
+                android.R.attr.textViewStyle) {
+            @Override
+            protected View instance(Context context, AttributeSet attributes, int defStyle) {
+                return new TextView(context, attributes, defStyle);
+            }
+        });
         manager.addInterceptor("EditText", new SimpleBackgroundInterceptor(
                 android.R.attr.editTextStyle) {
             @Override
@@ -196,6 +224,52 @@ public final class ThemeMaterial {
         // Default enabled state
         states[i] = new int[0];
         colors[i] = colorControlNormal;
+        return new ColorStateList(states, colors);
+    }
+
+    /**
+     * Retrieve the default {@link android.content.res.ColorStateList} for controls.
+     *
+     * @param manager a reference to the manager for retrieving the attributes.
+     *
+     * @return a reference to the default ColorStateList.
+     */
+    private static ColorStateList getActivatedStateList(QuantumResources manager) {
+        final int[][] states = new int[2][];
+        final int[] colors = new int[2];
+        int i = 0;
+
+
+        states[i] = new int[]{android.R.attr.state_activated};
+        colors[i] = manager.getThemeAttrColor(R.attr.colorControlActivated);
+        i++;
+
+        // Default enabled state
+        states[i] = new int[0];
+        colors[i] = manager.getColor(android.R.color.transparent);
+        return new ColorStateList(states, colors);
+    }
+
+    /**
+     * Retrieve the default {@link android.content.res.ColorStateList} for controls.
+     *
+     * @param manager a reference to the manager for retrieving the attributes.
+     *
+     * @return a reference to the default ColorStateList.
+     */
+    private static ColorStateList getActivatedButtonStateList(QuantumResources manager) {
+        final int[][] states = new int[2][];
+        final int[] colors = new int[2];
+        int i = 0;
+
+
+        states[i] = new int[]{android.R.attr.state_activated};
+        colors[i] = manager.getThemeAttrColor(R.attr.colorControlActivated);
+        i++;
+
+        // Default enabled state
+        states[i] = new int[0];
+        colors[i] = manager.getThemeAttrColor(R.attr.colorControlNormal);
         return new ColorStateList(states, colors);
     }
 
